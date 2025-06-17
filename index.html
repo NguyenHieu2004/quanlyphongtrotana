@@ -42,7 +42,7 @@
         <!-- Phần banner (bên phải) -->
         <div class="banner-section">
             <div class="pic-nhatro">
-                <img src="/img/rential-house.png">
+                <img src="img/rential-house.png">
             </div>
             <div class="rectangle">
                 <a>xin chào</a>
@@ -68,11 +68,11 @@
 
             <div class="pic-gioiThieu">
                 <div class="pic-left">
-                    <img src="/img/gioithieu4.jpg" alt="phòng trọ có gác" />
-                    <img src="/img/gioithieu8.jpg" alt="phòng ngủ phòng trọ" />
+                    <img src="img/gioithieu4.jpg" alt="phòng trọ có gác" />
+                    <img src="img/gioithieu8.jpg" alt="phòng ngủ phòng trọ" />
                 </div>
                 <div class="pic-right">
-                    <img src="/img/gioithieu5.jpg" alt="nhà vệ sinh phòng trọ" />
+                    <img src="img/gioithieu5.jpg" alt="nhà vệ sinh phòng trọ" />
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@
         <!-- PHÒNG CÓ GÁC -->
         <div class="row">
             <div class="image">
-                <img src="/img/tro_cogac4.jpg" alt="Phòng có gác">
+                <img src="img/tro_cogac4.jpg" alt="Phòng có gác">
             </div>
             <div class="content">
                 <h3><span class="highlight">Phòng có gác</span></h3>
@@ -104,7 +104,7 @@
         <!-- PHÒNG KHÔNG GÁC -->
         <div class="row reverse">
             <div class="image">
-                <img src="/img/tro_khonggac3.jpg" alt="Phòng không có gác">
+                <img src="img/tro_khonggac3.jpg" alt="Phòng không có gác">
             </div>
             <div class="content">
                 <h3><span class="highlight">Phòng không có gác</span></h3>
@@ -126,20 +126,18 @@
         <h2>Đánh giá</h2>
         <div class="carousel-container">
             <div class="carousel" id="carousel">
-            <!-- Đánh giá 1 -->
             <div class="review-card">
-                <div class="avatar"><img src="/img/CamTien.jpeg" alt="hình nền"></div>
+                <div class="avatar"><img src="img/CamTien.jpeg" alt="hình nền"></div>
                 <div class="review-content">
                 <h3>Rất hài lòng</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Anh chủ nhà siêu đáng yêu.</p>
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="reviewer">chị Trần Tiên - Sinh viên Văn Hiến đang học Thạc sĩ</p>
+                <p class="reviewer">chị Trần Tiên - sinh viên Văn Hiến đang học Thạc sĩ</p>
                 </div>
             </div>
 
-            <!-- Đánh giá 2 -->
             <div class="review-card">
-                <div class="avatar"><img src="/img/HoangTien.JPG" alt="hình nền"></div>
+                <div class="avatar"><img src="img/HoangTien.JPG" alt="hình nền"></div>
                 <div class="review-content">
                 <h3>Không gian sạch sẽ</h3>
                 <p>Phòng mới, thoáng mát, gần chợ, rất tiện lợi.</p>
@@ -148,9 +146,8 @@
                 </div>
             </div>
 
-            <!-- Đánh giá 3 -->
             <div class="review-card">
-                <div class="avatar"><img src="/img/chiUyen.JPG" alt=""></div>
+                <div class="avatar"><img src="img/chiUyen.JPG" alt=""></div>
                 <div class="review-content">
                 <h3>Chủ nhà thân thiện</h3>
                 <p>Rất dễ thương, hỗ trợ nhiệt tình khi mình dọn vào.</p>
@@ -165,23 +162,23 @@
     <section id="lien-He">
         <h2>Liên hệ</h2>
     <div class="contact-container">
-        <!-- Trái: Mạng xã hội -->
+        <!-- Mạng xã hội -->
         <div class="contact-left">
         <ul class="social-list">
             <li>
-            <a href="https://facebook.com/yourpage" target="_blank">
+            <a href="https://facebook.com" target="_blank">
                 <img src="img/Facebook_Logo.png" alt="Facebook" />
                 Facebook
             </a>
             </li>
             <li>
-            <a href="https://zalo.me/yourid" target="_blank">
+            <a href="https://zalo.me" target="_blank">
                 <img src="img/logo_zalo.png" alt="Zalo" />
                 Zalo
             </a>
             </li>
             <li>
-            <a href="mailto:yourmail@gmail.com">
+            <a href="mailto:ndthanhhieu25052004@gmail.com">
                 <img src="img/logo_mail.jpg" alt="Email" />
                 Email
             </a>
@@ -189,7 +186,7 @@
         </ul>
         </div>
 
-        <!-- Phải: Bản đồ -->
+        <!--Bản đồ -->
         <div class="contact-right">
         <h3>Vị trí & bản đồ</h3>
         <p>📍 Phong Phú, Bình Chánh, tp Hồ Chí Minh</p>
@@ -221,34 +218,34 @@
 
 </body>
 <script>
-  const carousel = document.getElementById("carousel");
-  let index = 0;
+    const carousel = document.getElementById("carousel");
+    let index = 0;
 
-  setInterval(() => {
-    index = (index + 1) % 3;
-    carousel.style.transform = `translateX(-${index * 100}%)`;
-  }, 4000); // đổi slide mỗi 4 giây
-</script>
+    setInterval(() => {
+        index = (index + 1) % 3;
+        carousel.style.transform = `translateX(-${index * 100}%)`;
+    }, 4000); // đổi slide mỗi 4 giây
+    </script>
 
-<script>
-  // Hiện nút khi scroll xuống
-  const backToTopBtn = document.getElementById("backToTopBtn");
+    <script>
+    // Hiện nút khi scroll xuống
+    const backToTopBtn = document.getElementById("backToTopBtn");
 
-  window.onscroll = function () {
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-      backToTopBtn.style.display = "block";
-    } else {
-      backToTopBtn.style.display = "none";
-    }
-  };
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        backToTopBtn.style.display = "block";
+        } else {
+        backToTopBtn.style.display = "none";
+        }
+    };
 
-  // Cuộn về đầu trang khi click
-  backToTopBtn.onclick = function () {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
+    // Cuộn về đầu trang khi click
+    backToTopBtn.onclick = function () {
+        window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+        });
+    };
 </script>
 
 </html>
