@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f7f7f7;
+}
+
+/* Container tổng */
+.signup-container {
+  display: flex;                  /* ✔ SỬA: flex để canh giữa form */
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding-top: 40px;              /* ✔ THÊM: tạo khoảng cách trên */
+}
+
+/* Phần logo + slogan */
+.logo-container {
+  display: flex;                  /* ✔ SỬA: xếp dọc logo + slogan */
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;            /* ✔ THÊM: cách form một khoảng */
+}
+
+.logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 40px;
+  margin-bottom: 5px;
+  color: #2d4987;
+}
+
+.slogan {
+  font-size: 14px;
+  color: #555;
+  margin: 0;                      /* ✔ Bỏ margin thừa nếu có */
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-box {
+  width: 400px;
+  background-color: #fff;
+  padding: 24px 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 19px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.signup-box label {
+  font-weight: bold;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.signup-box input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #2d4987;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.signup-box button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ffffff;
+  color: #2d4987;
+  border-radius: 5px;
+  border: 1px solid;
+  cursor: pointer;
+  font-weight: bolder;
+  transition: all 0.3s ease;
+  margin-top: 12px;
+}
+
+.signup-box button:hover {
+  color: #ffffff;
+  background-color: #fca311;
+  border: none;
+}
+
+.signup-links {
+  text-align: right;
+  margin-top: 16px;
+  font-size: 13px;
+}
+
+.signup-links a {
+  color: #1373E6;
+  text-decoration: none;
+}
+
+.signup-links a:hover {
+  color: #042652;
+}
+
+.back {
+    width: 100%;
+    margin: 12px;
+}
+
+.back a {
+    text-decoration: none;
+    color: #1373E6;
+    font-weight: bold;          /* ✔ Đậm lên cho dễ nhìn */
+    font-size: 14px;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.back a:hover {
+    color: #042652;
+}
