@@ -11,20 +11,20 @@ body {
 
 /* Container tổng */
 .login-container {
-    display: flex;                  /* ✔ SỬA: flex để canh giữa form */
+    display: flex;                  /* flex để canh giữa form */
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     min-height: 100vh;
-    padding-top: 40px;              /* ✔ THÊM: tạo khoảng cách trên */
+    padding-top: 40px;              /* tạo khoảng cách trên */
 }
 
 /* Phần logo + slogan */
 .logo-container {
-    display: flex;                  /* ✔ SỬA: xếp dọc logo + slogan */
+    display: flex;                  /* xếp dọc logo + slogan */
     flex-direction: column;
     align-items: center;
-    margin-bottom: 30px;            /* ✔ THÊM: cách form một khoảng */
+    margin-bottom: 30px;            /* cách form một khoảng */
 }
 
 .logo {
@@ -37,7 +37,7 @@ body {
 .slogan {
     font-size: 14px;
     color: #555;
-    margin: 0;                      /* ✔ Bỏ margin thừa nếu có */
+    margin: 0;                      /* Bỏ margin thừa nếu có */
 }
 
 .login-form {

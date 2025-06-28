@@ -6,35 +6,32 @@
   <title>Quản lý phòng trọ TANA</title>
   <link rel="stylesheet" href="style.css">
 
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- PHẦN HEADER NAVBAR -->
   <nav class="navbar">
         <div class="logo">TANA</div>
         <ul class="nav-links">
-            <li><a href="#">Trang chủ</a></li>
             <li><a href="#gioi-Thieu">Giới thiệu</a></li>
             <li><a href="#phong-Tro">Phòng trọ</a></li>
             <li><a href="#danh-Gia">Đánh giá</a></li>
-            <li><a href="#lien-He">Liên hệ</a></li>
         </ul>
         <ul class="nav-links-signup-login">
-            <li class="nav-links-signup"><a href="dangKy.html">Đăng ký</a></li>
+            <button class="nav-links-signup"><a href="#lien-He">Liên hệ ngay</a></button>
             <li class="nav-links-login"><a href="dangNhap.html">Đăng nhập</a></li>
         </ul>
     </nav>
 
-    <!-- Phần nội dung chính -->
     <section class="main-content">
         <!-- Phần chào mừng (bên trái) -->
         <div class="welcome-section">
             <h1>Chào mừng bạn đến với TANA</h1>
             <p>Với hệ thống quản lý online và hỗ trợ AI thông minh, bạn hoàn toàn yên tâm trong từng trải nghiệm.<br>TANA - nơi bạn bắt đầu ngày mới bằng an tâm và kết thúc bằng sự hài lòng.<i></i></p>
             <div class="button-signup-login">
-                <button class="btn">Đăng ký thuê trọ</button>
+                <button class="btn"><a href="#lien-He">Liên hệ ngay</a></button>
                 <a class="links-login" href="dangNhap.html">Đăng nhập</a>
             </div>    
         </div>
@@ -42,10 +39,7 @@
         <!-- Phần banner (bên phải) -->
         <div class="banner-section">
             <div class="pic-nhatro">
-                <img src="img/rential-house.png">
-            </div>
-            <div class="rectangle">
-                <a>xin chào</a>
+                <img src="img/banner.png">
             </div>
         </div>
     </section>
@@ -217,35 +211,8 @@
 
 
 </body>
-<script>
-    const carousel = document.getElementById("carousel");
-    let index = 0;
 
-    setInterval(() => {
-        index = (index + 1) % 3;
-        carousel.style.transform = `translateX(-${index * 100}%)`;
-    }, 4000); // đổi slide mỗi 4 giây
-    </script>
+<script src="script.js"></script>
 
-    <script>
-    // Hiện nút khi scroll xuống
-    const backToTopBtn = document.getElementById("backToTopBtn");
-
-    window.onscroll = function () {
-        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        backToTopBtn.style.display = "block";
-        } else {
-        backToTopBtn.style.display = "none";
-        }
-    };
-
-    // Cuộn về đầu trang khi click
-    backToTopBtn.onclick = function () {
-        window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-        });
-    };
-</script>
 
 </html>

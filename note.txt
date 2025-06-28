@@ -1,1 +1,12 @@
-Hiện tại đã tới phần liên hệ và tiếp theo sẽ qua user
+https://NguyenHieu2004.github.io/quanlyphongtrotana
+
+Sử dụng url trên để vào web
+
+- Cần làm:
++ Sửa lại hiệu ứng button trên navbar -- đã xong
++ Canh chỉnh cho hợp lý lại -- đã xong
++ Làm user
+    + Đã xong phần khung gồm 3 phần chính
+    + Make up cho đẹp phần card content
+    + Làm cho xong các phần còn lại
+    + 

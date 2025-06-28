@@ -48,7 +48,7 @@ body {
     list-style: none;
     display: flex;
     gap: 20px;
-    margin-right: 70px
+    margin-right: 100px
 }
 
 .nav-links-signup-login a {
@@ -67,8 +67,14 @@ body {
     border-radius: 5px;
 
 }
+
 .nav-links-signup {
+    font-size: medium;
+    border: none;
+    border-radius: 5px;
     background-color: #fca311 ;
+    color: #fff;
+    cursor: pointer;    
 }
 
 .main-content {
@@ -78,7 +84,7 @@ body {
 
 .welcome-section {
     flex: 1;
-    padding: 40px;
+    margin-left: 100px;
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -97,6 +103,7 @@ body {
 }
 
 .button-signup-login {
+  text-decoration: none;
     display: flex;
     gap: 20px;
     align-items: center;
@@ -104,15 +111,15 @@ body {
 
 .links-login {
     text-decoration: none;
-    color: black;
+    color: #0f1f53;
 }
 
 .button-signup-login a:hover {
-    text-decoration: underline;
-    color: #0751f2;
+    color: #2150ea;
 }
 
 .btn {
+  text-decoration: none;
     font-size: medium;
     padding: 10px 20px;
     margin: 5px 0;
@@ -124,8 +131,6 @@ body {
 }
 
 .btn:hover {
-    -webkit-box-shadow:0px 10px 39px 10px rgba(252,155,0,0.77);
-    -moz-box-shadow: 0px 10px 39px 10px rgba(252,155,0,0.77);
     box-shadow: 0px 10px 39px 10px rgba(252,155,0,0.77);
     transition: 0.3s;
 }
@@ -139,19 +144,8 @@ body {
 
 img {
     position: relative;
-    z-index: 2;
     width: 600px;
     height: 600px;
-}
-
-.rectangle {
-    position: absolute;
-    z-index: 1;
-    color: #fca311;
-    background-color: #fca311;
-    width: 500px;
-    height: 655px;
-    left:83.5%;
 }
 
 .gioiThieu {
@@ -350,6 +344,7 @@ img {
   font-size: 14px;
 }
 
+/*css liên hệ*/
 #lien-He {
   padding: 50px 20px;
   background-color: #fff;
