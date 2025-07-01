@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thông tin khách</title>
+  <link rel="stylesheet" href="user-hoadon&thanhtoan.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+</head>
+<body>
+  <div class="dashboard">
+    <!-- 1. Sidebar -->
+    <aside class="sidebar">
+      <div class="logo-container">
+        <h1 class="logo">TANA</h1>
+        <p class="slogan">Trọ - an cư - an tâm</p>
+      </div>
+      <div class="user-info">
+        <img class="avatar-sm" src="/img/avatar.jpg" alt="User Avatar">
+        <p class="user-name">Nguyễn Dương Thanh Hiếu</p>
+      </div>
+      <nav class="menu">
+        <ul>
+          <hr>
+          <li><a href="user.html">Thông tin cá nhân</a></li>
+          <li><a href="user-dichvu.html">Dịch vụ</a></li>
+          <li><a href="user-hoadon&thanhtoan.html">Hoá đơn & thanh toán</a></li>
+          <li><a href="user-lichsuthanhtoan.html">Lịch sử thanh toán</a></li>
+          <li><a href="user-thongkediennuoc.html">Thống kê điện/nước</a></li>
+          <li><a href="user-chatvoiAI.html">Chat với AI</a></li>
+          <hr>
+          <li><a href="user-hotro.html">Hổ trợ</a></li>
+          <li><a href="user-donggopykien.html">Đóng góp ý kiến</a></li>
+          <br>
+          <li class="logout"><a href="/index.html">Đăng xuất &nbsp; <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- 2. Main area -->
+    <div class="main-area">
+      <!-- 2.1 Header -->
+      <header class="dashboard-header">
+        <div class="hello-user">
+          <span>Hello Hiếu</span> <span class="wave">👋</span>
+        </div>
+        <input class="search-bar" type="search" placeholder="Search …">
+        <div class="header-icons">
+          <button class="icon-btn">🔔</button>
+          <button class="icon-btn">💬</button>
+          <button class="icon-btn">⚙️</button>
+        </div>
+      </header>
+
+      <!-- 2.2 Content cards - Nội dung chính sẽ nằm ở đây -->
+      <!-- Giao diện Hoá đơn thanh toán -->
+      <!-- 2.2 Content cards - Nội dung chính sẽ nằm ở đây -->
+      <section class="cards-container">
+        <!-- Phần 1: Header hóa đơn -->
+        <div class="invoice-header">
+          <h2>
+            Hoá đơn thanh toán -
+            <select id="month-select">
+              <option value="06">Tháng 06/2025</option>
+              <option value="05">Tháng 05/2025</option>
+            </select>
+          </h2>
+        </div>
+
+        <!-- Phần 2: Layout 2 cột -->
+        <div class="invoice-content">
+          <!-- Cột trái -->
+          <div class="left-column">
+            <div class="invoice-info">
+              <p>Tên người thuê: <strong>Nguyễn Dương Thanh Hiếu</strong></p>
+              <p>Mã người dùng: 25T001</p>
+              <p>Mã hợp đồng: HD-00001</p>
+              <p>Thời gian thanh toán: <strong>01/10/2025</strong></p>
+              <p>Trạng thái thanh toán: <span class="status-unpaid">Chưa thanh toán</span></p>
+            </div>
+
+            <div class="invoice-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Dịch vụ</th>
+                    <th>Đơn giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                  </tr>
+                </thead>
+                <tbody id="service-list">
+                  <tr>
+                    <td>Tiền phòng</td>
+                    <td>3.000.000 vnd</td>
+                    <td>1 phòng</td>
+                    <td>3.000.000 vnd</td>
+                  </tr>
+                  <tr>
+                    <td>Tiền điện</td>
+                    <td>3.500 vnd/kWh</td>
+                    <td>120 kWh</td>
+                    <td>420.000 vnd</td>
+                  </tr>
+                  <tr>
+                    <td>Tiền nước</td>
+                    <td>2.000 vnd/m<sup>3</sup></td>
+                    <td>4 m<sup>3</sup></td>
+                    <td>80.000 vnd</td>
+                  </tr>
+                  <tr>
+                    <td>Tiền gửi xe</td>
+                    <td>30.000 vnd</td>
+                    <td>2 chiếc</td>
+                    <td>120.000 vnd</td>
+                  </tr>
+                  <tr>
+                    <td>Tiền giặt ủi</td>
+                    <td>8.000 vnd/kg</td>
+                    <td>10 kg</td>
+                    <td>80.000 vnd</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Tổng cộng:</strong></td>
+                    <td><strong>3.780.000 vnd</strong></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+
+          <!-- Cột phải -->
+          <div class="payment-instructions">
+            <div class="box">
+              <h4>Hướng dẫn thanh toán online</h4>
+              <p>Ngân hàng Vietcombank - STK: 1234567890</p>
+              <p>Tên tài khoản: TRAN LE VAN B</p>
+              <p>Nội dung: [Mã người dùng] - [Tên] - [Tháng]</p>
+              <p>Ví dụ: 00000 - Nguyen Van A - Thang 6</p>
+            </div>
+            <div class="box qr-section">
+              <h4>Thanh toán</h4>
+              <div class="qr-columns">
+                <div class="qr-item">
+                  <img src="/img/qr-bank.png" alt="QR Vietcombank">
+                  <p><i>Tài khoảng ngân hàng</i> <br> Tên: Chủ trọ TANA <br> STK: 88888888 <br>Ngân hàng: Vietcombank</p>
+                </div>
+                <div class="qr-item">
+                  <img src="/img/qr-momo.png" alt="QR MoMo">
+                  <p><i>Tài khoản MoMo</i> <br> Tên: Chủ trọ TANA <br> STK: 66666666</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+    </div>
+  </div>
+
+  <script src="user.js"></script>
+  <script src="active-sidebar.js"></script>
+
+</body>
+</html>

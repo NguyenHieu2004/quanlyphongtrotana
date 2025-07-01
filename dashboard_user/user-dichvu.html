@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thông tin khách</title>
+  <link rel="stylesheet" href="user-dichvu.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+</head>
+<body>
+  <div class="dashboard">
+    <!-- 1. Sidebar -->
+    <aside class="sidebar">
+      <div class="logo-container">
+        <h1 class="logo">TANA</h1>
+        <p class="slogan">Trọ - an cư - an tâm</p>
+      </div>
+      <div class="user-info">
+        <img class="avatar-sm" src="/img/avatar.jpg" alt="User Avatar">
+        <p class="user-name">Nguyễn Dương Thanh Hiếu</p>
+      </div>
+      <nav class="menu">
+        <ul>
+          <hr>
+          <li><a href="user.html">Thông tin cá nhân</a></li>
+          <li><a href="user-dichvu.html">Dịch vụ</a></li>
+          <li><a href="user-hoadon&thanhtoan.html">Hoá đơn & thanh toán</a></li>
+          <li><a href="user-lichsuthanhtoan.html">Lịch sử thanh toán</a></li>
+          <li><a href="user-thongkediennuoc.html">Thống kê điện/nước</a></li>
+          <li><a href="user-chatvoiAI.html">Chat với AI</a></li>
+          <hr>
+          <li><a href="user-hotro.html">Hổ trợ</a></li>
+          <li><a href="user-donggopykien.html">Đóng góp ý kiến</a></li>
+          <br>
+          <li class="logout"><a href="/index.html">Đăng xuất &nbsp; <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- 2. Main area -->
+    <div class="main-area">
+      <!-- 2.1 Header -->
+      <header class="dashboard-header">
+        <div class="hello-user">
+          <span>Hello Hiếu</span> <span class="wave">👋</span>
+        </div>
+        <input class="search-bar" type="search" placeholder="Search …">
+        <div class="header-icons">
+          <button class="icon-btn">🔔</button>
+          <button class="icon-btn">💬</button>
+          <button class="icon-btn">⚙️</button>
+        </div>
+      </header>
+
+      <!-- 2.2 Content cards - Nội dung chính sẽ nằm ở đây -->
+      <section class="cards-container">
+        <!-- Đã đăng ký -->
+        <div class="section-title">Đã đăng ký</div>
+        <div class="service-grid">
+          <div class="service-card registered">
+              <h3>Điện</h3>
+              <p>Giá: 4.000 đồng/kWh<br>Sử dụng không giới hạn</p>
+            <button class="view-btn">Xem hóa đơn</button>
+          </div>
+          <div class="service-card registered">
+            <h3>Nước</h3>
+            <p>Giá: 3.000 đồng/m<sup>3</sup><br>Sử dụng thoải mái</p>
+            <button class="view-btn">Xem hóa đơn</button>
+          </div>
+        </div>
+
+        <!-- Chưa đăng ký -->
+        <div class="section-title">Chưa đăng ký</div>
+        <div class="service-grid">
+          <div class="service-card">
+            <div class="card-content">
+              <h3>Rác - vệ sinh</h3>
+              <p>Phí dịch vụ: 10.000 đồng/người/tháng<br>Thu gom: 6h - 7h mỗi ngày</p>
+            </div>
+            <div class="card-footer">
+              <button class="register-btn">Đăng ký ngay</button>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="card-content">
+              <h3>Gửi xe</h3>
+              <p>Giá: 30.000 đồng/chiếc<br>Mất sẽ được hỗ trợ</p>
+            </div>
+            <div class="card-footer">
+              <button class="register-btn">Đăng ký ngay</button>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="card-content">
+              <h3>Giặt ủi</h3>
+              <p>Giá: 5.000 đồng/lượt/1 máy<br>Máy giặt riêng</p>
+            </div>
+            <div class="card-footer">
+              <button class="register-btn">Đăng ký ngay</button>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="card-content">
+              <h3>Internet/ Wifi</h3>
+              <p>Giá: 50.000 đồng/tháng<br>Tốc độ: 120Mbps</p>
+            </div>
+            <div class="card-footer">
+              <button class="register-btn">Đăng ký ngay</button>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="card-content">
+              <h3>Chăm sóc cây cảnh</h3>
+              <p>Giá: 50.000 đồng/cây/tháng<br>Bón phân, cắt tỉa lá</p>
+            </div>
+            <div class="card-footer">
+              <button class="register-btn">Đăng ký ngay</button>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="card-content">
+              <h3>Sửa chữa - bảo trì</h3>
+              <p>Hỗ trợ sửa đồ gia dụng - sửa xe máy - các máy móc khác</p>
+            </div>
+            <div class="card-footer">
+              <button class="register-btn">Đăng ký ngay</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="user.js"></script>
+  <script src="active-sidebar.js"></script>
+  <script src="user-dichvu.js"></script>
+</body>
+</html>

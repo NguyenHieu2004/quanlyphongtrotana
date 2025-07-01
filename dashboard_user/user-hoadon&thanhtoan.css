@@ -1,0 +1,282 @@
+* { 
+    box-sizing: border-box; 
+    margin:0; 
+    padding:0 
+}
+
+body { 
+    font-family: Arial, sans-serif; 
+}
+
+.dashboard { 
+    display: flex; 
+    height:100vh; 
+    overflow:hidden; 
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background: #14213D;
+  color: #fff;
+  padding: 20px;
+}
+
+.logo-container {
+    display: flex;                  /* xếp dọc logo + slogan */
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 35px; 
+}
+
+.logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 40px;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
+.slogan {
+    font-size: 13px;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0;                      /* Bỏ margin thừa nếu có */
+}
+
+.dashboard .sidebar .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /*Căn giữa cả img và tên theo chiều ngang */
+    margin-bottom: 30px;
+    margin-top: 35px;
+}
+
+
+.dashboard .sidebar .user-info .avatar-sm {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 0 auto;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.dashboard .sidebar .user-info .user-name {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+
+.menu {
+    height: 100%; /*chiếm hết thanh sidebar*/
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding-left: 15px;
+    justify-content: space-between;
+}
+
+.menu li {
+    margin: 12px 0;
+}
+
+.menu li a {
+    text-decoration: none; /*bỏ gạch chân*/
+    color: #a1a1a1;
+    font-size: 14px;
+}
+
+.menu hr {
+    border: none;
+    border-top: 1px solid #44506a;
+}
+
+.menu .logout a {
+    color: #fca311;
+    font-weight: bold;
+    display: inline-block;
+    padding-left: 0px;
+}
+
+/*css thanh trên nav*/
+.dashboard-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    height: 60px;
+}
+
+.hello-user {
+  font-size: 18px;
+  font-weight: bold;
+  color: #14213D;
+}
+
+.wave {
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.search-bar {
+  width: 250px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+}
+
+.header-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/*css nội dung hiển thị*/
+.main-area {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: calc(100% - 280px);
+}
+
+.cards-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/*css phần hoá đơn và thanh toán*/
+.invoice-header {
+  margin-bottom: 20px;
+}
+
+.invoice-header h2 {
+  font-size: 20px;
+}
+
+.invoice-header select {
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+/* Giao diện chia 2 cột */
+.invoice-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Cột trái */
+.left-column {
+  flex: 70%;
+  min-width: 480px;
+}
+
+/* Cột phải */
+.payment-instructions {
+  flex: 30%;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Box bao quanh hướng dẫn và QR */
+.payment-instructions .box {
+  
+  border-radius: 12px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Chia 2 cột của mã qr */
+.qr-section .qr-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.qr-section .qr-item {
+  flex: 1;
+  text-align: center;
+}
+
+.qr-section img {
+  width: 100%;
+  max-width: 130px;
+  border-radius: 8px;
+}
+
+.qr-section p {
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+
+.payment-instructions h4 {
+  margin-bottom: 10px;
+}
+
+.payment-instructions p {
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 4px 0;
+}
+
+/* Căn bảng nhỏ gọn lại */
+.invoice-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.invoice-table th,
+.invoice-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+
+.invoice-table thead th {
+  background: #f1f1f1;
+}
+
+.invoice-info p {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.status-unpaid {
+  color: red;
+  font-weight: bold;
+}
+
+
+
+/*khi nhấp vào chức năng sẽ hiện trắng*/
+.menu li a.active {
+  color: white !important;
+  font-weight: bold;
+}
