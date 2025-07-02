@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Thông tin khách</title>
-  <link rel="stylesheet" href="user-thongkediennuoc.css">
+  <link rel="stylesheet" href="user-donggopykien.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,6 +50,7 @@
         <div class="hello-user">
           <span>Hello Hiếu</span> <span class="wave">👋</span>
         </div>
+        
         <input class="search-bar" type="search" placeholder="Search …">
         <div class="header-icons">
           <button class="icon-btn">🔔</button>
@@ -60,77 +61,48 @@
 
       <!-- 2.2 Content cards - Nội dung chính sẽ nằm ở đây -->
       <section class="cards-container">
-        <!--thống kê điện nước user-->
-        <h2 style="margin-bottom: 10px;">Thống kê điện <img width="32" height="32" src="https://img.icons8.com/emoji/48/high-voltage.png" alt="high-voltage"/></h2>
-        <table class="stat-table">
-          <thead>
-            <tr>
-              <th>Tháng</th>
-              <th>Chỉ số cũ</th>
-              <th>Chỉ số mới</th>
-              <th>Mức tiêu thụ</th>
-              <th>Đơn giá</th>
-              <th>Thành tiền</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>06/2025</td>
-              <td>1200</td>
-              <td>1320</td>
-              <td>120</td>
-              <td>4.000 đ</td>
-              <td>480.000 đ</td>
-            </tr>
-            <tr>
-              <td>05/2025</td>
-              <td>1100</td>
-              <td>1200</td>
-              <td>100</td>
-              <td>4.000 đ</td>
-              <td>400.000 đ</td>
-            </tr>
-          </tbody>
-        </table>
-        <br>
-        <h2 style="margin: 30px 0 10px;">Thống kê nước <img width="32" height="32" src="https://img.icons8.com/color/48/water--v1.png" alt="water--v1"/></h2>
-        <table class="stat-table">
-          <thead>
-            <tr>
-              <th>Tháng</th>
-              <th>Chỉ số cũ</th>
-              <th>Chỉ số mới</th>
-              <th>Mức tiêu thụ</th>
-              <th>Đơn giá</th>
-              <th>Thành tiền</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>06/2025</td>
-              <td>500</td>
-              <td>540</td>
-              <td>40</td>
-              <td>3.000 đ</td>
-              <td>120.000 đ</td>
-            </tr>
-            <tr>
-              <td>05/2025</td>
-              <td>460</td>
-              <td>500</td>
-              <td>40</td>
-              <td>3.000 đ</td>
-              <td>120.000 đ</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="feedback-wrapper">
+          <div class="feedback-left">
+            <h3>GÓP Ý CỦA BẠN RẤT QUAN TRỌNG VỚI TANA</h3>
+            <p>
+              Chúng tôi luôn sẵn sàng cải thiện để mang lại trải nghiệm sống tốt hơn cho bạn.<br>
+              “Mỗi ý kiến là một viên gạch xây nên khu trọ đáng sống.” 🧱✨
+            </p>
+            <img src="/img/construction.jpg" alt="Minh họa góp ý" width="500px">
+          </div>
 
+          <div class="feedback-right">
+            <label>Chủ đề góp ý:</label>
+            <select>
+              <option selected disabled>__ Chọn một mục __</option>
+              <option>Dịch vụ</option>
+              <option>Hạ tầng</option>
+              <option>Thái độ quản lý</option>
+              <option>Khác</option>
+            </select>
+
+            <label>Nội dung góp ý:</label>
+            <textarea rows="6" placeholder="Nhập chi tiết góp ý của bạn tại đây….."></textarea>
+
+            <label>Gửi kèm hình ảnh (nếu có):</label>
+            <input type="file">
+
+            <div class="checkbox-wrap">
+              <input type="checkbox" id="an-danh">
+              <label for="an-danh">Tôi muốn góp ý ẩn danh</label>
+            </div>
+
+            <button class="submit-btn">Gửi góp ý</button>
+          </div>
+        </div>
       </section>
+
     </div>
   </div>
 
   <script src="user.js"></script>
   <script src="active-sidebar.js"></script>
+  
 
 </body>
 </html>

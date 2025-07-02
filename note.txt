@@ -2,6 +2,15 @@ https://NguyenHieu2004.github.io/quanlyphongtrotana
 
 Sử dụng url trên để vào web
 
+-----------00-----------
+Deploy lên github
+- Mở terminal và dẫn tới thư mục
+- Kiểm tra remote GitHub có sẵn chưa: git remote -v 
+- git add .
+- git commit -m "Cập nhật giao diện hóa đơn, sidebar, chức năng đăng ký dịch vụ"
+- git push -u origin master
+-----------00-----------
+
 - Cần làm:
 + Sửa lại hiệu ứng button trên navbar -- đã xong
 + Canh chỉnh cho hợp lý lại -- đã xong
@@ -10,8 +19,8 @@ Sử dụng url trên để vào web
     + Make up cho đẹp phần card content - đã xong
     + Làm cho xong các phần còn lại 
         -- Đã xong 3 giao diện đầu chức năng - đã xong
-        -- Làm tiếp 3 chức năng tiếp tục
-    + 
+        -- Làm tiếp 3 chức năng tiếp tục - đã xong hết user
+    + CHỈ CÒN: sửa flex, grid đang còn sử dụng
 
 
 

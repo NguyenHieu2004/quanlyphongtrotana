@@ -164,6 +164,34 @@ body {
 }
 
 /*css phần lịch sử thanh toán*/
+.invoice-grid {
+  margin-top: 10px;
+  overflow: hidden; /* đảm bảo bọc các float */
+}
+
+.invoice-card {
+  width: 240px;
+  display: inline-block; /* xếp các thẻ theo hàng ngang */
+  vertical-align: top;
+  margin: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.05);
+}
+
+.invoice-card h4 {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #14213D;
+}
+
+.invoice-card p {
+  font-size: 13px;
+  margin: 4px 0;
+  color: #333;
+}
 
 
 

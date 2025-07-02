@@ -163,31 +163,89 @@ body {
   padding: 20px;
 }
 
-/*css phần chat với AI*/
-.ai-chat-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-/* iframe chatbot co giãn đúng chiều cao cards-container */
-.chat-iframe {
-  width: 100%;
-  height: 650px;             
-  max-height: 80vh;           /* không chiếm toàn bộ màn hình */
-  border: none;
-  border-radius: 10px;
-}
-
-
-
-
 /*khi nhấp vào chức năng sẽ hiện trắng*/
 .menu li a.active {
   color: white !important;
   font-weight: bold;
+}
+
+
+
+/* css PHẦN ĐÓNG GÓP Ý KIẾN  */
+.feedback-wrapper {
+  width: 98%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  padding: 30px 20px;
+  border-radius: 15px;
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Chia 2 cột bằng float */
+.feedback-left {
+  width: 48%;
+  float: left;
+  padding-right: 15px;
+}
+
+.feedback-left h3 {
+  color: #1a3e80;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.feedback-left p {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.feedback-right {
+  width: 48%;
+  float: right;
+}
+
+.feedback-right label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.feedback-right select,
+.feedback-right textarea,
+.feedback-right input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.checkbox-wrap {
+  margin-top: 10px;
+}
+
+.submit-btn {
+  background-color: #0075ff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #005dc1;
 }
