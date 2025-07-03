@@ -16,9 +16,10 @@ const formKhach = document.getElementById("khach-form");
 const formTK = document.getElementById("taikhoan-form");
 const selectPhong = document.getElementById("maPhong");
 
-let danhSachPhong = JSON.parse(localStorage.getItem("danhSachPhong")) || [];
 let khachThue = JSON.parse(localStorage.getItem("khachThue")) || [];
 let taiKhoanKhach = JSON.parse(localStorage.getItem("taiKhoanKhach")) || [];
+let danhSachPhong = JSON.parse(localStorage.getItem("danhSachPhong")) || []; // ✅ THÊM DÒNG NÀY
+
 
 let editIndexPhong = -1;
 let editIndexKhach = -1;
@@ -84,6 +85,7 @@ if (roomForm) {
 
     saveDanhSachPhong();
     renderDanhSachPhong();
+    loadMaPhong(); // Cập nhật lại select phòng
     roomForm.reset();
     editIndexPhong = -1;
   });
@@ -115,6 +117,7 @@ roomListEl?.addEventListener("click", function (e) {
     danhSachPhong.splice(index, 1);
     saveDanhSachPhong();
     renderDanhSachPhong();
+    loadMaPhong(); // Cập nhật lại select phòng
   }
 });
 
@@ -247,3 +250,297 @@ if (formTK) {
 // khởi tạo
 renderDanhSachPhong();
 renderKhach();
+
+
+
+// QUẢN LÝ DỊCH VỤ ===
+const serviceForm = document.getElementById("service-form");
+const serviceListEl = document.getElementById("service-list");
+let danhSachDichVu = JSON.parse(localStorage.getItem("danhSachDichVu")) || [];
+let editIndexDichVu = -1;
+
+function saveDichVu() {
+  localStorage.setItem("danhSachDichVu", JSON.stringify(danhSachDichVu));
+}
+
+function renderDichVu() {
+  if (!serviceListEl) return;
+  serviceListEl.innerHTML = "";
+  danhSachDichVu.forEach((dv, index) => {
+    const div = document.createElement("div");
+    div.className = "service-card";
+    div.innerHTML = `
+      <h4>${dv.tenDichVu}</h4>
+      <p>Giá: ${dv.giaDichVu} VNĐ</p>
+      <p>Mô tả: ${dv.moTaDichVu}</p>
+      <div class="actions">
+        <button class="edit" onclick="editDichVu(${index})">Sửa</button>
+        <button class="delete" onclick="deleteDichVu(${index})">Xoá</button>
+      </div>
+    `;
+    serviceListEl.appendChild(div);
+  });
+}
+
+if (serviceForm) {
+  serviceForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const tenDichVu = document.getElementById("service-name").value.trim();
+    const giaDichVu = document.getElementById("service-price").value.trim();
+    const moTaDichVu = document.getElementById("service-description").value.trim();
+    if (!tenDichVu || !giaDichVu || !moTaDichVu) return;
+
+    const data = { tenDichVu, giaDichVu, moTaDichVu };
+
+    if (editIndexDichVu === -1) {
+      danhSachDichVu.push(data);
+    } else {
+      danhSachDichVu[editIndexDichVu] = data;
+      editIndexDichVu = -1;
+    }
+
+    saveDichVu();
+    renderDichVu();
+    serviceForm.reset();
+  });
+}
+
+function editDichVu(index) {
+  const dv = danhSachDichVu[index];
+  document.getElementById("service-name").value = dv.tenDichVu;
+  document.getElementById("service-price").value = dv.giaDichVu;
+  document.getElementById("service-description").value = dv.moTaDichVu;
+  editIndexDichVu = index;
+}
+
+function deleteDichVu(index) {
+  if (!confirm("Bạn có chắc muốn xoá dịch vụ này?")) return;
+  danhSachDichVu.splice(index, 1);
+  saveDichVu();
+  renderDichVu();
+}
+// Khởi tạo danh sách dịch vụ nếu đang ở trang dịch vụ
+if (serviceListEl) renderDichVu();
+
+
+
+// Quản lý Nhập điện/nước
+  const phongDien = document.getElementById("phongDien");
+  const phongNuoc = document.getElementById("phongNuoc");
+  const listDien = document.getElementById("list-dien");
+  const listNuoc = document.getElementById("list-nuoc");
+
+  const formDien = document.getElementById("form-dien");
+  const formNuoc = document.getElementById("form-nuoc");
+
+  let danhSachDien = JSON.parse(localStorage.getItem("danhSachDien")) || [];
+  let danhSachNuoc = JSON.parse(localStorage.getItem("danhSachNuoc")) || [];
+
+  // Load mã phòng vào select
+  function loadMaPhong() {
+    console.log("Loading room numbers...");
+  if (phongDien && phongNuoc) {
+    // Xóa hết option cũ trước khi thêm mới
+    phongDien.innerHTML = "";
+    phongNuoc.innerHTML = "";
+    danhSachPhong.forEach(p => {
+      const option1 = new Option(p.soPhong, p.soPhong);
+      const option2 = new Option(p.soPhong, p.soPhong);
+      phongDien.add(option1);
+      phongNuoc.add(option2);
+    });
+  }
+  if (chonPhongLapHD) {
+    chonPhongLapHD.innerHTML = "";
+    danhSachPhong.forEach(p => {
+      chonPhongLapHD.add(new Option(p.soPhong, p.soPhong));
+    });
+  }
+}
+
+  // Hiển thị danh sách điện
+if(formDien){
+  function renderDien() {
+    listDien.innerHTML = "";
+    danhSachDien.forEach(d => {
+      const div = document.createElement("div");
+      div.className = "diennuoc-card";
+      div.innerHTML = `<strong>Phòng:</strong> ${d.soPhong} | ${d.ngay}<br>
+        Chỉ số: ${d.chiSo} kWh | Giá: ${d.gia} VND`;
+      listDien.appendChild(div);
+    });
+  }
+}
+  // Hiển thị danh sách nước
+if(formNuoc){
+  function renderNuoc() {
+    listNuoc.innerHTML = "";
+    danhSachNuoc.forEach(n => {
+      const div = document.createElement("div");
+      div.className = "diennuoc-card";
+      div.innerHTML = `<strong>Phòng:</strong> ${n.soPhong} | ${n.ngay}<br>
+        Chỉ số: ${n.chiSo} m³ | Giá: ${n.gia} VND`;
+      listNuoc.appendChild(div);
+    });
+  }
+}
+
+  // Lưu localStorage
+  function saveDien() {
+    localStorage.setItem("danhSachDien", JSON.stringify(danhSachDien));
+  }
+
+  function saveNuoc() {
+    localStorage.setItem("danhSachNuoc", JSON.stringify(danhSachNuoc));
+  }
+
+  // Submit điện
+  formDien.addEventListener("submit", e => {
+    e.preventDefault();
+    const soPhong = phongDien.value;
+    const chiSo = parseFloat(document.getElementById("chiSoDien").value);
+    const gia = parseFloat(document.getElementById("giaDien").value);
+    const ngay = document.getElementById("ngayDien").value;
+
+    if (!soPhong || isNaN(chiSo) || isNaN(gia) || !ngay) return;
+
+    danhSachDien.push({ soPhong, chiSo, gia, ngay });
+    saveDien();
+    renderDien();
+    formDien.reset();
+  });
+
+  // Submit nước
+  formNuoc.addEventListener("submit", e => {
+    e.preventDefault();
+    const soPhong = phongNuoc.value;
+    const chiSo = parseFloat(document.getElementById("chiSoNuoc").value);
+    const gia = parseFloat(document.getElementById("giaNuoc").value);
+    const ngay = document.getElementById("ngayNuoc").value;
+
+    if (!soPhong || isNaN(chiSo) || isNaN(gia) || !ngay) return;
+
+    danhSachNuoc.push({ soPhong, chiSo, gia, ngay });
+    saveNuoc();
+    renderNuoc();
+    formNuoc.reset();
+  });
+
+  
+
+// QUẢN LÝ HÓA ĐƠN
+let danhSachHoaDon = JSON.parse(localStorage.getItem("danhSachHoaDon")) || [];
+
+const chonPhongLapHD = document.getElementById("chonPhongLapHD");
+const hoaDonForm = document.getElementById("hoaDonForm");
+const chiTietHoaDon = document.getElementById("chiTietHoaDon");
+const dsHoaDon = document.getElementById("dsHoaDon");
+const tongDoanhThuEl = document.getElementById("tongDoanhThu");
+const tongThangEl = document.getElementById("tongThang");
+
+// Load phòng
+danhSachPhong.forEach(p => {
+  const opt = new Option(p.soPhong, p.soPhong);
+  chonPhongLapHD.add(opt);
+});
+
+// Hiển thị tổng doanh thu
+function renderDoanhThu() {
+  const thangChon = document.getElementById("thangHoaDon")?.value || "";
+  let tong = 0;
+  dsHoaDon.innerHTML = "";
+
+  danhSachHoaDon.forEach((hd, index) => {
+    if (hd.trangThai === "Đã thanh toán" && hd.thang === thangChon) {
+      tong += hd.tongTien;
+    }
+
+    const div = document.createElement("div");
+    div.className = "hoa-don-card";
+    div.innerHTML = `
+      <strong>Phòng:</strong> ${hd.soPhong}<br>
+      <strong>Tháng:</strong> ${hd.thang}<br>
+      Tiền phòng: ${hd.giaPhong} VND<br>
+      Điện: ${hd.dien} kWh (${hd.giaDien} VND)<br>
+      Nước: ${hd.nuoc} m³ (${hd.giaNuoc} VND)<br>
+      Dịch vụ: ${hd.dichVu}<br>
+      <strong>Tổng: ${hd.tongTien} VND</strong><br>
+      Trạng thái: ${hd.trangThai}
+      ${hd.trangThai === "Chưa thanh toán" ? `<br><button onclick="xacNhanThanhToan(${index})">Xác nhận thanh toán</button>` : ""}
+    `;
+    dsHoaDon.appendChild(div);
+  });
+
+  tongDoanhThuEl.textContent = tong.toLocaleString();
+  tongThangEl.textContent = thangChon;
+}
+
+// Lập hóa đơn
+if (hoaDonForm) {
+  hoaDonForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const soPhong = chonPhongLapHD.value;
+    const thang = document.getElementById("thangHoaDon").value;
+    const phong = danhSachPhong.find(p => p.soPhong === soPhong);
+    const dien = danhSachDien.find(d => d.soPhong === soPhong && d.ngay.startsWith(thang));
+    const nuoc = danhSachNuoc.find(n => n.soPhong === soPhong && n.ngay.startsWith(thang));
+    if (!phong || !dien || !nuoc) return alert("Thiếu dữ liệu phòng/điện/nước!");
+    const tongTien = +phong.giaPhong + (dien.chiSo * dien.gia) + (nuoc.chiSo * nuoc.gia);
+    const hoaDon = {
+      soPhong,
+      thang,
+      giaPhong: +phong.giaPhong,
+      dien: dien.chiSo,
+      giaDien: dien.gia,
+      nuoc: nuoc.chiSo,
+      giaNuoc: nuoc.gia,
+      dichVu: "Internet, Giữ xe",
+      tongTien: Math.round(tongTien),
+      trangThai: "Chưa thanh toán"
+    };
+    danhSachHoaDon.push(hoaDon);
+    localStorage.setItem("danhSachHoaDon", JSON.stringify(danhSachHoaDon));
+    renderDoanhThu();
+    hoaDonForm.reset();
+  });
+}
+
+// Xác nhận thanh toán
+window.xacNhanThanhToan = function(index) {
+  if (confirm("Xác nhận đã thanh toán?")) {
+    danhSachHoaDon[index].trangThai = "Đã thanh toán";
+    localStorage.setItem("danhSachHoaDon", JSON.stringify(danhSachHoaDon));
+    renderDoanhThu();
+  }
+}
+
+// Init
+// Khởi tạo
+
+// Init theo từng trang
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (currentPage === "admin-phong.html") {
+    renderDanhSachPhong();
+  }
+  if (currentPage === "admin-khach.html") {
+    renderKhach();
+  }
+  if (currentPage === "admin-dichvu.html") {
+    renderDichVu();
+  }
+  if (currentPage === "admin-nhapdiennuoc.html") {
+    loadMaPhong();
+    renderDien();
+    renderNuoc();
+  }
+  if (currentPage === "admin-doanhthu.html") {
+    loadMaPhong();
+    renderDoanhThu();
+  }
+});
+
+
+
+
+

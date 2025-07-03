@@ -59,7 +59,19 @@
       <!-- 2.2 Content cards - Nội dung chính sẽ nằm ở đây -->
       <section class="cards-container">
         <!--admin-->
-        
+        <div class="service-management">
+          <h2>Quản lý Dịch vụ</h2>
+          <form id="service-form">
+            <input type="text" id="service-name" placeholder="Tên dịch vụ" required>
+            <input type="number" id="service-price" placeholder="Giá dịch vụ" required>
+            <input type="text" id="service-description" placeholder="Mô tả dịch vụ" required>
+            <button type="submit">Lưu</button>
+          </form>
+
+          <div id="service-list" class="service-list"></div>
+        </div>
+
+      </section>
     </div>
   </div>
 

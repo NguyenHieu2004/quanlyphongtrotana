@@ -170,6 +170,61 @@ body {
   font-weight: bold;
 }
 
-/*css cho phần thông tin*/
+/*css cho phần nhập điện nước*/
+.nhap-dien-nuoc {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.nhap-dien-nuoc h2 {
+  margin-top: 20px;
+  color: #14213D;
+  font-size: 20px;
+}
+
+.nhap-dien-nuoc form {
+  margin-bottom: 24px;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.nhap-dien-nuoc form select,
+.nhap-dien-nuoc form input,
+.nhap-dien-nuoc form button {
+  display: block;
+  width: 96%;
+  margin: 8px auto;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.nhap-dien-nuoc form button {
+  background-color: #14213D;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Danh sách hiển thị */
+.diennuoc-list {
+  margin-top: 16px;
+}
+
+.diennuoc-card {
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
 
 

@@ -59,12 +59,48 @@
       <!-- 2.2 Content cards - Nội dung chính sẽ nằm ở đây -->
       <section class="cards-container">
         <!--admin-->
-        
+        <section class="nhap-dien-nuoc">
+          <h2>Nhập chỉ số điện</h2>
+          <form id="form-dien">
+            <select id="phongDien" required>
+              <option value="">-- Chọn mã phòng --</option>
+            </select>
+            <input type="number" id="chiSoDien" placeholder="Chỉ số điện (kWh)" required>
+            <input type="number" id="giaDien" placeholder="Giá điện (VND)" required>
+            <input type="date" id="ngayDien" required>
+            <button type="submit">Lưu điện</button>
+          </form>
+
+          <h2>Nhập chỉ số nước</h2>
+          <form id="form-nuoc">
+            <select id="phongNuoc" required>
+              <option value="">-- Chọn mã phòng --</option>
+            </select>
+            <input type="number" id="chiSoNuoc" placeholder="Chỉ số nước (m³)" required>
+            <input type="number" id="giaNuoc" placeholder="Giá nước (VND)" required>
+            <input type="date" id="ngayNuoc" required>
+            <button type="submit">Lưu nước</button>
+          </form>
+
+          <div>
+            <h3>Danh sách điện</h3>
+            <div id="list-dien" class="diennuoc-list"></div>
+          </div>
+          <div>
+            <h3>Danh sách nước</h3>
+            <div id="list-nuoc" class="diennuoc-list"></div>
+          </div>
+        </section>
+
+      </section>
+
     </div>
   </div>
 
   
   <script src="admin.js"></script>
+  
+
 
 </body>
 </html>

@@ -20,6 +20,5 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       alert("Sai tài khoản hoặc mật khẩu! Vui lòng thử lại.");
     }
-    
   });
 });

@@ -59,13 +59,33 @@
       <!-- 2.2 Content cards - Nội dung chính sẽ nằm ở đây -->
       <section class="cards-container">
         <!--admin-->
-        
+        <section class="lap-hoa-don">
+          <h2>Lập hóa đơn</h2>
+          <form id="hoaDonForm">
+            <select id="chonPhongLapHD" required>
+              <option value="">-- Chọn mã phòng --</option>
+            </select>
+            <input type="month" id="thangHoaDon" required>
+            <button type="submit">Lập hóa đơn</button>
+          </form>
+
+          <div id="chiTietHoaDon" class="hoa-don-detail"></div>
+
+          <h3>Tổng doanh thu tháng <span id="tongThang"></span>: 
+            <span id="tongDoanhThu">0</span> VND
+          </h3>
+
+          <div id="dsHoaDon" class="hoa-don-list"></div>
+        </section>
+
       </section>
     </div>
   </div>
 
   
   <script src="admin.js"></script>
+ 
+
 
 </body>
 </html>

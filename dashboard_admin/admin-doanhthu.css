@@ -171,5 +171,35 @@ body {
 }
 
 /*css cho phần thông tin*/
+.lap-hoa-don {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.lap-hoa-don form select,
+.lap-hoa-don form input,
+.lap-hoa-don form button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.hoa-don-list, .hoa-don-detail {
+  margin-top: 20px;
+}
+
+.hoa-don-card {
+  background: #f1f1f1;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
 
 
