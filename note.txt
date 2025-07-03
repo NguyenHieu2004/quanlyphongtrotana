@@ -96,3 +96,17 @@ Viết báo cáo
 Bạn đồng ý giữ nguyên kế hoạch hiện tại
 
 Sau khi frontend xong sẽ chuyển sang backend/API + CSDL
+
+
+
+----------------------------------------
+Dashboard-admin chức năng:
+--- Luồng hoạt động của admin như sau: 
+    + Tạo trước 5 phòng trọ. Và khi có khách thuê ở phòng 001 
+thì sẽ vào phòng 001 chọn thêm thành viên và nhập thông tin của khách vào, lập lại nếu có thêm thành viên.
+      Cùng với đó là nút nhập số điện/nước - khi nhập xong sẽ có nút save để gửi cho user
+      Đã nhận được tiền - để cập nhật trang thái
+    + Phần hiển thị CRUD dịch vụ (để thêm dv vào cột dv user) - tên dv; giá; nội dung
+    + 
+- Thêm phòng
+- Thêm thông tin khách + 

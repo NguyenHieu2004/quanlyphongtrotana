@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Thông tin khách</title>
-  <link rel="stylesheet" href="user-chatvoiAI.css">
+  <link rel="stylesheet" href="admin-thongbaonhanh.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,22 +22,20 @@
         <p class="slogan">Trọ - an cư - an tâm</p>
       </div>
       <div class="user-info">
-        <img class="avatar-sm" src="img-user/avatar.jpg" alt="User Avatar">
-        <p class="user-name">Nguyễn Dương Thanh Hiếu</p>
+        <img class="avatar-sm" src="img-admin/avatar-admin.jpg" alt="User Avatar">
+        <p class="user-name">Quản trị viên</p>
       </div>
       <nav class="menu">
         <ul>
           <hr>
-          <li><a href="user.html">Thông tin cá nhân</a></li>
-          <li><a href="user-dichvu.html">Dịch vụ</a></li>
-          <li><a href="user-hoadon&thanhtoan.html">Hoá đơn & thanh toán</a></li>
-          <li><a href="user-lichsuthanhtoan.html">Lịch sử thanh toán</a></li>
-          <li><a href="user-thongkediennuoc.html">Thống kê điện/nước</a></li>
-          <li><a href="user-chatvoiAI.html">Chat với AI</a></li>
+          <li><a href="admin.html">Trang chủ</a></li>
+          <li><a href="admin-khach.html">Khách</a></li>
+          <li><a href="admin-phong.html">Phòng</a></li> <!--Phòng -add> Thành viên-->
+          <li><a href="admin-dichvu.html">Dịch vụ</a></li> <!--DV -add> dv-->
+          <li><a href="admin-nhapdiennuoc.html">Nhập điện/nước</a></li>
+          <li><a href="admin-doanhthu.html">Doanh thu</a></li>
+          <li><a href="admin-thongbaonhanh.html">Thông báo nhanh</a></li> <!--Soạn văn bản giống user để thông báo hàng loạt cho user -->
           <hr>
-          <li><a href="user-hotro.html">Hổ trợ</a></li>
-          <li><a href="user-donggopykien.html">Đóng góp ý kiến</a></li>
-          <br>
           <li class="logout"><a href="../index.html">Đăng xuất &nbsp; <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
         </ul>
       </nav>
@@ -48,7 +46,7 @@
       <!-- 2.1 Header -->
       <header class="dashboard-header">
         <div class="hello-user">
-          <span>Hello Hiếu</span> <span class="wave">👋</span>
+          <span>Hello Quản trị viên</span> <span class="wave">👋</span>
         </div>
         <input class="search-bar" type="search" placeholder="Search …">
         <div class="header-icons">
@@ -60,22 +58,13 @@
 
       <!-- 2.2 Content cards - Nội dung chính sẽ nằm ở đây -->
       <section class="cards-container">
-        <div class="ai-chat-container">
-          <!-- Iframe của Chatbase -->
-          <iframe
-            class="chat-iframe"
-            src="https://www.chatbase.co/chatbot-iframe/JM6mn_G2Ubd6Jqfqw9k4I"
-            frameborder="0"
-            allow="clipboard-write"
-          ></iframe>
-        </div>
+        <!--admin-->
       </section>
-
     </div>
   </div>
 
-  <script src="user.js"></script>
-  <script src="active-sidebar.js"></script>
+  
+  <script src="admin.js"></script>
 
 </body>
 </html>

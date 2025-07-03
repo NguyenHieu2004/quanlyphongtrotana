@@ -1,0 +1,175 @@
+/* reset & layout */
+* { 
+    box-sizing: border-box; 
+    margin:0; 
+    padding:0 
+}
+
+body { 
+    font-family: Arial, sans-serif; 
+}
+
+.dashboard { 
+    display: flex; 
+    height:100vh; 
+    overflow:hidden; 
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background: #14213D;
+  color: #fff;
+  padding: 20px;
+}
+
+.logo-container {
+    display: flex;                  /* xếp dọc logo + slogan */
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 35px; 
+}
+
+.logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 40px;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
+.slogan {
+    font-size: 13px;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0;                      /* Bỏ margin thừa nếu có */
+}
+
+.dashboard .sidebar .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /*Căn giữa cả img và tên theo chiều ngang */
+    margin-bottom: 30px;
+    margin-top: 35px;
+}
+
+
+.dashboard .sidebar .user-info .avatar-sm {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 0 auto;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.dashboard .sidebar .user-info .user-name {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+
+.menu {
+    height: 100%; /*chiếm hết thanh sidebar*/
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding-left: 15px;
+    justify-content: space-between;
+}
+
+.menu li {
+    margin: 12px 0;
+}
+
+.menu li a {
+    text-decoration: none; /*bỏ gạch chân*/
+    color: #a1a1a1;
+    font-size: 14px;
+}
+
+.menu hr {
+    border: none;
+    border-top: 1px solid #44506a;
+}
+
+.menu .logout a {
+    color: #fca311;
+    font-weight: bold;
+    display: inline-block;
+    padding-left: 0px;
+}
+
+/*css thanh trên nav*/
+.dashboard-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    height: 60px;
+}
+
+.hello-user {
+  font-size: 18px;
+  font-weight: bold;
+  color: #14213D;
+}
+
+.wave {
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.search-bar {
+  width: 250px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+}
+
+.header-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/*css nội dung hiển thị*/
+.main-area {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: calc(100% - 280px);
+}
+
+.cards-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/*khi nhấp vào chức năng sẽ hiện trắng*/
+.menu li a.active {
+  color: white !important;
+  font-weight: bold;
+}
+
+/*css cho phần thông tin*/
+
+

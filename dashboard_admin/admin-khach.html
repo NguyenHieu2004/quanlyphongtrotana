@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thông tin khách</title>
+  <link rel="stylesheet" href="admin-khach.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+</head>
+<body>
+  <div class="dashboard">
+    <!-- 1. Sidebar -->
+    <aside class="sidebar">
+      <div class="logo-container">
+        <h1 class="logo">TANA</h1>
+        <p class="slogan">Trọ - an cư - an tâm</p>
+      </div>
+      <div class="user-info">
+        <img class="avatar-sm" src="img-admin/avatar-admin.jpg" alt="User Avatar">
+        <p class="user-name">Quản trị viên</p>
+      </div>
+      <nav class="menu">
+        <ul>
+          <hr>
+          <li><a href="admin.html">Trang chủ</a></li>
+          <li><a href="admin-khach.html">Khách</a></li>
+          <li><a href="admin-phong.html">Phòng</a></li> <!--Phòng -add> Thành viên-->
+          <li><a href="admin-dichvu.html">Dịch vụ</a></li> <!--DV -add> dv-->
+          <li><a href="admin-nhapdiennuoc.html">Nhập điện/nước</a></li>
+          <li><a href="admin-doanhthu.html">Doanh thu</a></li>
+          <li><a href="admin-thongbaonhanh.html">Thông báo nhanh</a></li> <!--Soạn văn bản giống user để thông báo hàng loạt cho user -->
+          <hr>
+          <li class="logout"><a href="../index.html">Đăng xuất &nbsp; <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- 2. Main area -->
+    <div class="main-area">
+      <!-- 2.1 Header -->
+      <header class="dashboard-header">
+        <div class="hello-user">
+          <span>Hello Quản trị viên</span> <span class="wave">👋</span>
+        </div>
+        <input class="search-bar" type="search" placeholder="Search …">
+        <div class="header-icons">
+          <button class="icon-btn">🔔</button>
+          <button class="icon-btn">💬</button>
+          <button class="icon-btn">⚙️</button>
+        </div>
+      </header>
+
+      <!-- 2.2 Content cards - Nội dung chính sẽ nằm ở đây -->
+       <section class="cards-container">
+            <section class="khach-management">
+                <section class="tao-tai-khoan">
+                <h2>Tạo tài khoản khách thuê trọ</h2>
+                <form id="taikhoan-form">
+                    <input type="text" placeholder="Mã người dùng (đã tạo)" id="tk-maNguoiDung" required>
+                    <input type="text" placeholder="Tài khoản đăng nhập" id="tk-username" required>
+                    <input type="password" placeholder="Mật khẩu" id="tk-password" required>
+                    <button type="submit">Tạo tài khoản</button>
+                </form>
+                </section>
+
+                <div class="khach-management">
+                    <h2>Quản lý khách thuê</h2>
+                    <form id="khach-form">
+                        <input type="text" placeholder="Mã người dùng" id="maNguoiDung">
+                        <input type="text" placeholder="Họ và tên" id="hoTen">
+                        <input type="date" id="ngaySinh">
+                        <input type="text" placeholder="Giới tính" id="gioiTinh">
+                        <input type="text" placeholder="CCCD" id="cccd">
+                        <input type="text" placeholder="Điện thoại" id="dienThoai">
+                        <input type="email" placeholder="Email cá nhân" id="email">
+                        <select id="maPhong">
+                            <option value="">-- Chọn phòng --</option>
+                        </select>
+                        <input type="text" placeholder="Dân tộc" id="danToc">
+                        <input type="text" placeholder="Tôn giáo" id="tonGiao">
+                        <input type="text" placeholder="Quận huyện" id="quanHuyen">
+                        <input type="text" placeholder="Tỉnh thành" id="tinhThanh">
+                        <input type="text" placeholder="Quốc gia" id="quocGia">
+                        <input type="date" id="ngayNhanPhong">
+                        <button id="submit" type="submit">Lưu</button>
+                    </form>
+
+                    <div id="khach-list" class="khach-list">
+                        <!-- Hiển thị thẻ khách tại đây -->
+                    </div>
+                    </div>
+            </section>
+       </section>
+    </div>
+  </div>
+
+  
+    <script src="admin.js"></script>
+
+
+
+
+
+</body>
+</html>
+
