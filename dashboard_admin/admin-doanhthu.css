@@ -202,4 +202,21 @@ body {
   border-radius: 8px;
 }
 
+.hoa-don-card .edit {
+  background-color: #fca311;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.hoa-don-card .delete {
+  background-color: #e63946;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
 

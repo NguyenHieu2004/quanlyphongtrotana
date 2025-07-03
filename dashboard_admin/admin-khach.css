@@ -243,24 +243,6 @@ body {
   cursor: pointer;
 }
 
-.khach-card .edit-btn {
-  padding: 10px 20px;
-  background-color: #fca311;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.khach-card .delete-btn {
-  padding: 10px 20px;
-  background-color: #e63946;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
 .khach-list {
   display: flex;
   flex-wrap: wrap;
@@ -273,6 +255,24 @@ body {
   border-radius: 10px;
   width: 280px;
   box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.khach-card button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.khach-card .edit-btn {
+  background-color: #fca311; /* nút sửa màu cam */
+}
+
+.khach-card .delete-btn {
+  background-color: #e63946; /* nút xoá màu đỏ */
 }
 
 

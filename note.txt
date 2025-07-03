@@ -20,82 +20,16 @@ Deploy lên github
     + Làm cho xong các phần còn lại 
         -- Đã xong 3 giao diện đầu chức năng - đã xong
         -- Làm tiếp 3 chức năng tiếp tục - đã xong hết user
-    + CHỈ CÒN: sửa flex, grid đang còn sử dụng
+    + CHỈ CÒN: sửa flex, grid đang còn sử dụng - thôi bỏ
+
++ làm admin
+    + Đã xong gần hết
+    + Trang chủ
+    + Doanh thu
+        - Sửa lại hiển thị
+    + Thông báo nhanh
 
 
-
---------Bên dưới là tóm tắt việc cần làm cho 3 ngày còn lại------------
-+ 2. Xác định lộ trình phát triển dự án TANA
-Bạn hỏi:
-
-Tôi có thể kết nối SQL Server với HTML/CSS/JS thuần không? Có khó khăn gì?
-
-→ Tôi giải thích:
-
-Không nên kết nối trực tiếp JS với SQL Server
-
-Nên theo quy trình:
-
-✅ Frontend (HTML, CSS, JS)
-
-✅ Thiết kế Database
-
-✅ Xây dựng API (Node.js/Express) để giao tiếp giữa JS và CSDL
-
-
-3. Hỏi về việc deploy trên GitHub Pages có đúng với yêu cầu "có hosting" không
-Bạn hỏi: Đẩy web lên GitHub Pages có đúng không? Thầy yêu cầu phải có hosting
-
-→ Tôi trả lời:
-
-GitHub Pages là một dạng hosting tĩnh (static hosting) nên:
-
-Nếu chỉ cần web chạy được: OK
-
-Nếu cần xử lý CSDL: Không đủ (vì GitHub Pages không hỗ trợ backend)
-
-→ Giải pháp:
-
-Vẫn deploy frontend ở GitHub Pages
-
-Deploy backend (API + DB) ở nơi khác như Render, Railway, hoặc dùng localhost khi demo
-
-
-4. Bạn hỏi về kế hoạch hoàn thành trong 3 ngày (trước 4/7)
-Bạn cần hoàn thành CRUD cho phòng và người thuê, hỏi nên chia ra sao?
-
-→ Tôi đã lập kế hoạch 3 ngày như sau:
-
-📅 Ngày 1 (hôm nay – 28/6):
-Làm xong giao diện CRUD phòng
-
-Thiết kế CSDL
-
-Cài đặt backend Node.js + kết nối DB
-
-📅 Ngày 2 (29/6):
-Viết API cho phòng
-
-Gọi API từ JS và hiển thị
-
-📅 Ngày 3 (30/6):
-Làm CRUD cho người thuê
-
-Giao diện + API
-
-Kết nối với phòng
-
-📅 Ngày 4 (1–2/7):
-Tinh chỉnh UI
-
-Test toàn bộ
-
-Viết báo cáo
-
-5. Bạn xác nhận muốn tôi tiếp tục hỗ trợ phần frontend
-Bạn đồng ý giữ nguyên kế hoạch hiện tại
-
-Sau khi frontend xong sẽ chuyển sang backend/API + CSDL
 
 
 
