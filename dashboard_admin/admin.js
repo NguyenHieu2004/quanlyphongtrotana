@@ -38,6 +38,7 @@ let danhSachHoaDon = JSON.parse(localStorage.getItem("danhSachHoaDon")) || [];
 let khachThue = JSON.parse(localStorage.getItem("khachThue")) || [];
 let taiKhoanKhach = JSON.parse(localStorage.getItem("taiKhoanKhach")) || [];
 
+// Quản lý khách
 let editIndexKhach = -1;
 
 function saveKhach() {
@@ -97,6 +98,12 @@ if (formKhach && selectPhong) {
       khachThue[editIndexKhach] = khach;
       editIndexKhach = -1;
     }
+    // Cập nhật trạng thái phòng thành "Đã thuê"
+    const phong = danhSachPhong.find(p => p.soPhong === khach.maPhong);
+    if (phong) {
+      phong.trangThai = "Đã thuê";
+      saveDanhSachPhong();
+    }
 
     saveKhach();
     renderKhach();
@@ -151,6 +158,7 @@ window.editKhach = function(index) {
 window.deleteKhach = function(index) {
   if (!confirm("Bạn có chắc muốn xoá khách này?")) return;
   const maNguoiDungBiXoa = khachThue[index].maNguoiDung;
+  const maPhongKhachBiXoa = khachThue[index].maPhong;
   khachThue.splice(index, 1);
   const indexTK = taiKhoanKhach.findIndex(tk => tk.maNguoiDung === maNguoiDungBiXoa);
   if (indexTK !== -1) {
@@ -158,6 +166,14 @@ window.deleteKhach = function(index) {
     saveTaiKhoan();
   }
   saveKhach();
+
+  // Kiểm tra nếu phòng không còn khách nào thì cập nhật trạng thái về "Trống"
+  const vanConKhach = khachThue.some(k => k.maPhong === maPhongKhachBiXoa);
+  const phong = danhSachPhong.find(p => p.soPhong === maPhongKhachBiXoa);
+  if (phong && !vanConKhach) {
+    phong.trangThai = "Trống";
+    saveDanhSachPhong();
+  }
   renderKhach();
 };
 
@@ -165,7 +181,7 @@ if (currentPage === "admin-khach.html") {
   renderKhach();
 }
 
-
+// Quản lý phòng
 let editIndexPhong = -1;
 
 function saveDanhSachPhong() {
@@ -233,10 +249,12 @@ if (roomForm) {
     const giaPhong = document.getElementById("room-price").value.trim();
     if (!soPhong || !dienTich || !giaPhong) return;
 
-    const data = { soPhong, dienTich, giaPhong };
+    const data = { soPhong, dienTich, giaPhong, trangThai: "Trống" }; // Luôn có trang thái "trống" khi thêm mới phòng
     if (editIndexPhong === -1) {
       danhSachPhong.push(data);
     } else {
+      data.trangThai = danhSachPhong[editIndexPhong].trangThai || "Trống";
+      // Nếu đang sửa, giữ nguyên trạng thái phòng
       danhSachPhong[editIndexPhong] = data;
       editIndexPhong = -1;
     }
@@ -329,111 +347,85 @@ if (window.location.pathname.includes("admin-dichvu.html")) {
 
 // Quản lý điện nước
 
-// const phongDienSelect = document.getElementById("phongDien");
-// const phongNuocSelect = document.getElementById("phongNuoc");
-
-
-
-
-// function saveDien() {
-//   localStorage.setItem("danhSachDien", JSON.stringify(danhSachDien));
-// }
-
-// function saveNuoc() {
-//   localStorage.setItem("danhSachNuoc", JSON.stringify(danhSachNuoc));
-// }
-
-// function loadMaPhong() {
-//   danhSachPhong = JSON.parse(localStorage.getItem("danhSachPhong")) || [];
-//   if (phongDienSelect) {
-//     phongDienSelect.innerHTML = `<option value="">-- Chọn mã phòng --</option>`;
-//     danhSachPhong.forEach(p => {
-//       phongDienSelect.innerHTML += `<option value="${p.soPhong}">${p.soPhong}</option>`;
-//     });
-//   }
-//   if (phongNuocSelect) {
-//     phongNuocSelect.innerHTML = `<option value="">-- Chọn mã phòng --</option>`;
-//     danhSachPhong.forEach(p => {
-//       phongNuocSelect.innerHTML += `<option value="${p.soPhong}">${p.soPhong}</option>`;
-//     });
-//   }
-// }
-
-// function renderDien() {
-//   if (!listDien) return;
-//   listDien.innerHTML = "";
-//   danhSachDien.forEach(d => {
-//     const div = document.createElement("div");
-//     div.className = "diennuoc-card";
-//     div.innerHTML = `<strong>Phòng:</strong> ${d.soPhong} | ${d.ngay}<br>Chỉ số: ${d.chiSo} kWh | Giá: ${d.gia} VND`;
-//     listDien.appendChild(div);
-//   });
-// }
-
-// function renderNuoc() {
-//   if (!listNuoc) return;
-//   listNuoc.innerHTML = "";
-//   danhSachNuoc.forEach(n => {
-//     const div = document.createElement("div");
-//     div.className = "diennuoc-card";
-//     div.innerHTML = `<strong>Phòng:</strong> ${n.soPhong} | ${n.ngay}<br>Chỉ số: ${n.chiSo} m³ | Giá: ${n.gia} VND`;
-//     listNuoc.appendChild(div);
-//   });
-// }
-
-// if (formDien) {
-//   formDien.addEventListener("submit", e => {
-//     e.preventDefault();
-//     const soPhong = phongDienSelect.value;
-//     const chiSo = parseFloat(document.getElementById("chiSoDien").value);
-//     const gia = parseFloat(document.getElementById("giaDien").value);
-//     const ngay = document.getElementById("ngayDien").value;
-
-//     if (!soPhong || isNaN(chiSo) || isNaN(gia) || !ngay) {
-//       alert("Vui lòng điền đầy đủ thông tin điện.");
-//       return;
-//     }
-
-//     danhSachDien.push({ soPhong, chiSo, gia, ngay });
-//     saveDien();
-//     renderDien();
-//     formDien.reset();
-//   });
-// }
-
-// if (formNuoc) {
-//   formNuoc.addEventListener("submit", e => {
-//     e.preventDefault();
-//     const soPhong = phongNuocSelect.value;
-//     const chiSo = parseFloat(document.getElementById("chiSoNuoc").value);
-//     const gia = parseFloat(document.getElementById("giaNuoc").value);
-//     const ngay = document.getElementById("ngayNuoc").value;
-
-//     if (!soPhong || isNaN(chiSo) || isNaN(gia) || !ngay) {
-//       alert("Vui lòng điền đầy đủ thông tin nước.");
-//       return;
-//     }
-
-//     danhSachNuoc.push({ soPhong, chiSo, gia, ngay });
-//     saveNuoc();
-//     renderNuoc();
-//     formNuoc.reset();
-//   });
-// }
-
-// // Khởi tạo nếu ở trang nhập điện nước
-// if (window.location.pathname.includes("admin-nhapdiennuoc.html")) {
-//   loadMaPhong();
-//   renderDien();
-//   renderNuoc();
-// }
-
-
-
-// // Quản lý hoá đơn
+//  Quản lý hoá đơn
 // =============================
 // === DOANH THU + ĐIỆN/NƯỚC ===
 // =============================
+
+// điện/nước
+const phongDienSelect = document.getElementById("phongDien");
+const phongNuocSelect = document.getElementById("phongNuoc");
+function saveDien() {
+  localStorage.setItem("danhSachDien", JSON.stringify(danhSachDien));
+}
+
+function saveNuoc() {
+  localStorage.setItem("danhSachNuoc", JSON.stringify(danhSachNuoc));
+}
+
+function renderDien() {
+  if (!listDien) return;
+  listDien.innerHTML = "";
+  danhSachDien.forEach(d => {
+    const div = document.createElement("div");
+    div.className = "diennuoc-card";
+    div.innerHTML = `<strong>Phòng:</strong> ${d.soPhong} | ${d.ngay}<br>Chỉ số: ${d.chiSo} kWh | Giá: ${d.gia} VND`;
+    listDien.appendChild(div);
+  });
+}
+
+function renderNuoc() {
+  if (!listNuoc) return;
+  listNuoc.innerHTML = "";
+  danhSachNuoc.forEach(n => {
+    const div = document.createElement("div");
+    div.className = "diennuoc-card";
+    div.innerHTML = `<strong>Phòng:</strong> ${n.soPhong} | ${n.ngay}<br>Chỉ số: ${n.chiSo} m³ | Giá: ${n.gia} VND`;
+    listNuoc.appendChild(div);
+  });
+}// khởi tạo nếu đang ở trang nhập điện nước
+
+
+if (formDien) {
+  formDien.addEventListener("submit", e => {
+    e.preventDefault();
+    const soPhong = phongDienSelect.value;
+    const chiSo = parseFloat(document.getElementById("chiSoDien").value);
+    const gia = parseFloat(document.getElementById("giaDien").value);
+    const ngay = document.getElementById("ngayDien").value;
+
+    if (!soPhong || isNaN(chiSo) || isNaN(gia) || !ngay) {
+      alert("Vui lòng điền đầy đủ thông tin điện.");
+      return;
+    }
+
+    danhSachDien.push({ soPhong, chiSo, gia, ngay });
+    saveDien();
+    renderDien();
+    formDien.reset();
+  });
+}
+
+if (formNuoc) {
+  formNuoc.addEventListener("submit", e => {
+    e.preventDefault();
+    const soPhong = phongNuocSelect.value;
+    const chiSo = parseFloat(document.getElementById("chiSoNuoc").value);
+    const gia = parseFloat(document.getElementById("giaNuoc").value);
+    const ngay = document.getElementById("ngayNuoc").value;
+
+    if (!soPhong || isNaN(chiSo) || isNaN(gia) || !ngay) {
+      alert("Vui lòng điền đầy đủ thông tin nước.");
+      return;
+    }
+
+    danhSachNuoc.push({ soPhong, chiSo, gia, ngay });
+    saveNuoc();
+    renderNuoc();
+    formNuoc.reset();
+  });
+}
+
 
 const thangHoaDon = document.getElementById("thangHoaDon");
 const giaDienEl = document.getElementById("giaDienHD");
@@ -470,6 +462,8 @@ function renderDoanhThu() {
       <p>Nước: ${hd.nuoc} x ${Number(hd.giaNuoc).toLocaleString('vi-VN')} = ${Number(hd.nuoc * hd.giaNuoc).toLocaleString('vi-VN')} VND</p>
       <p>Dịch vụ: ${hd.dichVu}</p>
       <p><strong>Tổng: ${Number(hd.tongTien).toLocaleString('vi-VN')} VND</strong></p>
+      <p>Trạng thái: <span class="${hd.trangThai === 'Đã thanh toán' ? 'trangthai-dathanh-toan' : 'trangthai-chuathanhtoan'}">${hd.trangThai}</span></p>
+      <p>Ngày lập: ${new Date().toLocaleDateString()}</p>
       <div class="actions">
         <button class="edit" onclick="editHoaDon(${index})">Sửa</button>
         <button class="delete" onclick="deleteHoaDon(${index})">Xoá</button>
@@ -478,15 +472,14 @@ function renderDoanhThu() {
     `;
     dsHoaDon.appendChild(div);
 
-    if (thang && hd.trangThai === "Đã thanh toán" && hd.thang === thang) {
+    // Chỉ cộng vào tổng nếu hóa đơn đã thanh toán
+    if (hd.trangThai === "Đã thanh toán" && (!thang || hd.thang === thang)) {
       tong += Number(hd.tongTien);
     }
   });
 
-  if (thang) {
-    tongDoanhThuEl.textContent = tong.toLocaleString('vi-VN');
-    tongThangEl.textContent = thang;
-  }
+  tongDoanhThuEl.textContent = tong.toLocaleString('vi-VN');
+  tongThangEl.textContent = thang || "";
 }
 
 if (hoaDonForm && chonPhongLapHD) {
@@ -572,4 +565,77 @@ document.addEventListener("DOMContentLoaded", () => {
     loadMaPhong(chonPhongLapHD);
     renderDoanhThu();
   }
+  if (currentPage === "admin-nhapdiennuoc.html") {
+    loadMaPhong(phongDienSelect);
+    loadMaPhong(phongNuocSelect);
+    renderDien();
+    renderNuoc();
+  }
+  if (currentPage === "admin-phong.html") {
+    renderDanhSachPhong();
+  }
+  if (currentPage === "admin-khach.html") {
+    renderKhach();
+  }
+  if (currentPage === "admin-dichvu.html") {
+    renderDichVu();
+  }
+  if (currentPage === "admin.html") {
+    const tongDoanhThuEl = document.getElementById("tongDoanhThuTrangChu");
+    const trangThaiPhongEl = document.getElementById("trangThaiPhong");
+
+    const danhSachHoaDon = JSON.parse(localStorage.getItem("danhSachHoaDon")) || [];
+    const danhSachPhong = JSON.parse(localStorage.getItem("danhSachPhong")) || [];
+
+    // Doanh thu tháng hiện tại
+    const thangHienTai = new Date().toISOString().slice(0, 7); // yyyy-mm
+    // Hiển thị tổng doanh thu của tất cả hóa đơn đã thanh toán (không lọc theo tháng)
+const tong = danhSachHoaDon
+  .filter(hd => hd.trangThai === "Đã thanh toán")
+  .reduce((sum, hd) => sum + (Number(hd.giaPhong) + Number(hd.dien) * Number(hd.giaDien) + Number(hd.nuoc) * Number(hd.giaNuoc)), 0);
+    if (tongDoanhThuEl) tongDoanhThuEl.textContent = tong.toLocaleString("vi-VN") + " VND";
+
+    // Trạng thái phòng
+    const soPhong = danhSachPhong.length;
+    const phongTrong = danhSachPhong.filter(p => p.trangThai === "Trống").length;
+    if (trangThaiPhongEl) trangThaiPhongEl.textContent = `${phongTrong} phòng trống / ${soPhong} phòng`;
+  }
+
 });
+
+// Gửi và hiển thị thông báo
+const formThongBao = document.getElementById("form-thongbao");
+const lichSuThongBao = document.getElementById("lichSuThongBao");
+
+let danhSachThongBao = JSON.parse(localStorage.getItem("danhSachThongBao")) || [];
+
+function renderThongBao() {
+  if (!lichSuThongBao) return;
+  lichSuThongBao.innerHTML = "";
+  danhSachThongBao.forEach(tb => {
+    const div = document.createElement("div");
+    div.className = "thongbao-card";
+    div.innerHTML = `
+      <h4>${tb.tieuDe}</h4>
+      <p>${tb.noiDung}</p>
+    `;
+    lichSuThongBao.appendChild(div);
+  });
+}
+
+if (formThongBao) {
+  formThongBao.addEventListener("submit", e => {
+    e.preventDefault();
+    const tieuDe = document.getElementById("tieudeThongBao").value.trim();
+    const noiDung = document.getElementById("noiDungThongBao").value.trim();
+
+    if (!tieuDe || !noiDung) return;
+
+    danhSachThongBao.push({ tieuDe, noiDung });
+    localStorage.setItem("danhSachThongBao", JSON.stringify(danhSachThongBao));
+    formThongBao.reset();
+    renderThongBao();
+  });
+
+  renderThongBao();
+}

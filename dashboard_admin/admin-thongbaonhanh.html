@@ -59,7 +59,17 @@
       <!-- 2.2 Content cards - Nội dung chính sẽ nằm ở đây -->
       <section class="cards-container">
         <!--admin-->
-        
+        <div class="thongbao-wrapper">
+          <h2>Gửi thông báo đến người dùng</h2>
+          <form id="form-thongbao">
+            <input type="text" id="tieudeThongBao" placeholder="Tiêu đề thông báo" required>
+            <textarea id="noiDungThongBao" rows="5" placeholder="Nhập nội dung thông báo..." required></textarea>
+            <button type="submit">Gửi thông báo</button>
+          </form>
+          <div id="lichSuThongBao" class="lichsu-thongbao">
+            <!-- Lịch sử các thông báo đã gửi sẽ hiển thị ở đây -->
+          </div>
+        </div>
       </section>
     </div>
   </div>

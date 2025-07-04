@@ -171,5 +171,72 @@ body {
 }
 
 /*css cho phần thông báo*/
+.thongbao-wrapper {
+  background: #ffffff;
+  padding: 24px;
+  max-width: 700px;
+  margin: 30px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.thongbao-wrapper h2 {
+  font-size: 24px;
+  color: #14213D;
+  margin-bottom: 16px;
+}
+
+#form-thongbao {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#form-thongbao input,
+#form-thongbao textarea {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: none;
+}
+
+#form-thongbao button {
+  align-self: flex-end;
+  padding: 10px 20px;
+  background-color: #14213D;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+#form-thongbao button:hover {
+  background-color: #fca311;
+}
+
+.lichsu-thongbao {
+  margin-top: 30px;
+}
+
+.lichsu-thongbao .thongbao-card {
+  background: #f9f9f9;
+  border-left: 5px solid #fca311;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+}
+
+.thongbao-card h4 {
+  margin: 0 0 8px 0;
+  color: #14213D;
+}
+
+.thongbao-card p {
+  margin: 0;
+  color: #333;
+}
 
 

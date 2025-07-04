@@ -25,8 +25,8 @@ Deploy lên github
 + làm admin
     + Đã xong gần hết
     + Trang chủ
-    + Doanh thu
-        - Sửa lại hiển thị
+    + Doanh thu - đã xong
+    + Điện/nước: sửa lại thêm code để hiển thị lựa chọn nhập chỉ số điện nước
     + Thông báo nhanh
 
 
