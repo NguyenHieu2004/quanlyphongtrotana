@@ -136,10 +136,10 @@ body {
 }
 
 .banner-section {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 img {
@@ -211,60 +211,305 @@ img {
   max-width: 250px; /* Giới hạn chiều rộng ảnh */
 }
 
-/*css phòng trọ*/
-.phongtro {
-  padding: 40px;
-  background-color: #fff;
-  color: #0f1f53;
-  font-family: sans-serif;
-}
-
-.phongtro h1 {
+/* === PHÒNG TRỌ === */
+.header-phongtro {
   text-align: center;
   font-size: 36px;
+  margin-top: 60px;
+  margin-bottom: 10px;
   color: #0f1f53;
-  margin-bottom: 40px;
+  font-weight: bold;
+  border-bottom: none;
 }
 
-.row {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 60px;
-  padding: 0px 80px;
-  gap: 90px;
+.subtitle {
+  padding-top: 25px;
+  text-align: center;
+  font-size: 20px;
+  color: #0f1f53;
 }
 
-.row.reverse {
-  flex-direction: row-reverse;
+/* Carousel wrapper giữ nút và phòng */
+.carousel-wrapper {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1225px;
+  padding: 10px 0 40px 0;
+  margin-bottom: 20px;
 }
 
+.carousel-room {
+  text-align: center;
+  white-space: nowrap;
+  overflow-x: auto;
+  padding: 0 20px;
+}
 
-.image img {
+.room-card {
+  display: inline-block;
   width: 260px;
-  height: auto;
-  border-radius: 12px;
+  margin: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  vertical-align: top;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: left;
+  overflow: hidden;
+}
+
+.room-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px 0 0 0;
+}
+
+.room-info {
+  padding: 15px;
+  white-space: normal;
+  word-wrap: break-word;
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.room-info .stars {
+  margin: 5px 0;
+  color: #fcb900;
+}
+
+.room-info .price {
+  color: red;
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.room-details {
+  font-size: 13px;
+  margin-top: 5px;
+  list-style: disc;
+  padding-left: 20px;
+  color: #333;
+}
+
+.room-details.hidden {
+  display: none;
+}
+
+.toggle-detail {
+  background: none;
+  border: none;
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+.rent-btn {
+  background-color: #fca311;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 15px;
+  width: calc(100% - 30px);
+  transition: background-color 0.3s;
+}
+
+.rent-btn:hover {
+  background-color: #e88e05;
+}
+
+.rent-btn a {
+  color: white;
+  text-decoration: none;
+}
+
+
+
+/* tìm phòng bộ lọc */
+.search-rooms {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+  height: 280px;
+}
+
+.search-bg {
+  background-image: url("img/background-city.png");
+  height: 10vh;
+  width: calc(100% - 40px);
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 60px 20px;
+}
+
+.search-box {
+  background-color: #0f1f53;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  position: relative;
+  color: white;
+}
+
+.search-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.filter-area {
+  width: 60%;
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 30px;
+}
+
+.select-filter {
+  width: 140px;
+  margin: 10px 10px 10px 0;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+}
+
+.filter-btn {
+  background-color: #fca311;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  background-color: #e88e05;
+}
+
+/*danh sách phòng trọ nằm ngang*/
+.danh-sach-phong {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.phong-list {
+  max-width: 1200px; /* 4 phòng mỗi phòng 260px + margin khoảng 20px */
+  margin: 0 auto;
+  text-align: center;
+  white-space: normal;
+}
+
+.phong-item {
+  display: inline-block;
+  margin: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: left;
+  vertical-align: top;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: 240px;
+}
+
+@media screen and (max-width: 1100px) {
+  .phong-item {
+    width: 45%;
+    margin: 15px 2.5%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .phong-item {
+    width: 90%;
+    margin: 10px 5%;
+  }
+}
+
+.phong-item img {
+  width: 100%;
+  height: 180px;
   object-fit: cover;
 }
 
-.content {
-  max-width: 500px;
-  padding: 40px;
+.phong-info {
+  padding: 15px;
 }
 
-.row .content p {
-    color: black;
+.phong-info h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
 }
 
-.highlight {
-  background-color: #fca311;
-  color: #0f1f53;
-  padding: 4px 10px;
-  border-radius: 5px;
+.phong-info p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.phong-info .gia {
+  color: red;
   font-weight: bold;
-    display: inline-block;
-    margin-bottom: 8px;
+  font-size: 15px;
 }
+
+.phan-trang {
+  margin-top: 20px;
+}
+
+.phan-trang button {
+  background-color: #fca311;
+  color: white;
+  border: none;
+  margin: 0 5px;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.phan-trang button:hover {
+  background-color: #e88e05;
+}
+
+.phan-trang button:focus { /*focus khi đã nhấn nó sẽ tạo 1 nền bao quanh nút đã nhấn*/
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(252, 163, 17, 0.5);
+}
+.phan-trang button:active {
+  background-color: #0f1f53;
+  color: white;
+  cursor: default;
+}
+
+
+/* Thông tin phòng còn trống */
+.info-area {
+  width: 35%;
+  display: inline-block;
+  vertical-align: top;
+  border-left: 1px solid #ccc;
+  padding-left: 30px;
+  font-size: 16px;
+}
+
+.info-area p {
+  margin: 10px 0;
+}
+
+
 
 /*css Đánh giá*/
 .danhGia {

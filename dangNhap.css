@@ -11,49 +11,52 @@ body {
 
 /* Container tổng */
 .login-container {
-    display: flex;                  /* flex để canh giữa form */
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    position: relative;
+    width: 100%;
     min-height: 100vh;
-    padding-top: 40px;              /* tạo khoảng cách trên */
+    padding-top: 40px;
+    text-align: center; /* Căn giữa nội dung theo chiều ngang */
 }
 
 /* Phần logo + slogan */
 .logo-container {
-    display: flex;                  /* xếp dọc logo + slogan */
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 30px;            /* cách form một khoảng */
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: center; /* Căn giữa tất cả nội dung bên trong */
 }
 
 .logo {
     font-family: 'Pacifico', cursive;
     font-size: 40px;
-    margin-bottom: 5px;
     color: #2d4987;
+    margin-bottom: 5px;
+    display: block; /* Hiển thị trên 1 dòng */
 }
 
 .slogan {
     font-size: 14px;
     color: #555;
-    margin: 0;                      /* Bỏ margin thừa nếu có */
+    margin: 0;
+    display: block; /* Nằm dưới logo */
 }
 
+
+
+/* FORM */
 .login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
 }
 
+/* Khung form */
 .login-box {
     width: 400px;
     background-color: #fff;
     padding: 24px 30px;
     border-radius: 8px;
     box-shadow: 0 0 19px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Căn giữa khung form */
     box-sizing: border-box;
+    text-align: left; /* Nội dung bên trong trái */
 }
 
 .login-box label {
@@ -92,32 +95,37 @@ body {
     border: none;
 }
 
+/* Liên kết bên dưới */
 .login-links {
-    display: flex;
-    justify-content: space-between;
-    margin: auto;
-    margin-top: 16px;
+    width: 400px;
+    margin: 16px auto 0 auto;
     font-size: 13px;
+    overflow: hidden;
 }
 
 .login-links a {
     color: #1373E6;
     text-decoration: none;
+    float: left;
+    width: 50%;
+    text-align: left;
 }
 
 .login-links a:hover {
     color: #042652;
 }
 
+/* Link trở về */
 .back {
-    width: 100%;
-    margin: 12px;
+    width: 400px;
+    margin: 12px auto;
+    text-align: left;
 }
 
 .back a {
     text-decoration: none;
     color: #1373E6;
-    font-weight: bold;          /* ✔ Đậm lên cho dễ nhìn */
+    font-weight: bold;
     font-size: 14px;
     display: inline-block;
     transition: color 0.3s;
