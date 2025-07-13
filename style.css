@@ -77,36 +77,29 @@ body {
     cursor: pointer;    
 }
 
-.main-content {
-    display: flex;
-    height: calc(100vh - 60px);
-}
-
 .welcome-section {
-    flex: 1;
-    margin-left: 100px;
+    display: inline-block;
+    align-items: center;
+    width: 48%;
+    margin-top: 130px;
+    margin-left: 50px;
     background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    text-align: left;
 }
 
 .welcome-section h1 {
     font-size: 28px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .welcome-section p {
     font-size: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .button-signup-login {
-  text-decoration: none;
-    display: flex;
-    gap: 20px;
-    align-items: center;
+    text-align: left;
+    margin-top: 10px;
 }
 
 .links-login {
@@ -136,18 +129,19 @@ body {
 }
 
 .banner-section {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: inline-block;
+    vertical-align: top;
+    width: 40%;
+    text-align: center;
 }
 
 img {
-    position: relative;
-    width: 600px;
-    height: 600px;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
 }
 
+/* CSS GIỚI THIỆU */
 .gioiThieu {
   background-color: #0f1f53;
   padding: 20px 0;
@@ -161,47 +155,56 @@ img {
 }
 
 .content-gioiThieu {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
+  color: white;
+  text-align: left;
   padding: 0 5%;
-  flex-wrap: wrap;
 }
 
-.content {
-  flex: 1;
-  max-width: 45%;
-  color: white;
-  font-size: 1.1em;
+
+.content, .pic-gioiThieu {
+  display: inline-block;
+  vertical-align: top;
+  width: 48%;
+  font-size: 16px;        
+  box-sizing: border-box;
 }
 
 .content .tien-ich {
-    margin: 10px 0 20px 20px;
-    list-style: none;
-    padding-left: 0;
+  margin: 10px 0 20px 20px;
+  list-style: none;
+  padding-left: 0;
 }
 
 .content .tien-ich li::before {
-    content: "* ";
-    color: #fca311;
-    margin-right: 5px;
+  content: "* ";
+  color: #fca311;
+  margin-right: 5px;
 }
 
+/* Hình ảnh bên phải */
 .pic-gioiThieu {
-  display: flex;
-  gap: 20px;
-  flex: 1;
-  max-width: 50%;
+  text-align: center;
 }
 
 .pic-left,
 .pic-right {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* căn giữa ảnh nhỏ */
-  gap: 20px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  width: 48%;
+  box-sizing: border-box;
 }
 
+.pic-left img,
+.pic-right img {
+  display: block;
+  margin: 0 auto 10px auto;
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
 
 .pic-gioiThieu img {
   width: 100%;
@@ -425,17 +428,68 @@ img {
   width: 240px;
 }
 
-@media screen and (max-width: 1100px) {
-  .phong-item {
-    width: 45%;
-    margin: 15px 2.5%;
-  }
+/* --- Responsive --- */
+@media screen and (max-width: 768px) {
+    .main-content {
+        display: block;
+        text-align: center;
+    }
+
+    .welcome-section,
+    .banner-section {
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+    }
 }
 
-@media screen and (max-width: 600px) {
-  .phong-item {
-    width: 90%;
-    margin: 10px 5%;
+/* --- Giới thiệu --- */
+
+
+.content {
+  margin-top: 80px;
+  display: inline-block;
+  vertical-align: top;
+  width: 48%;
+  font-size: 1.1em;    /* Khôi phục lại font-size bị mất từ cha */
+  color: white;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+
+.pic-gioiThieu {
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+    text-align: center;
+}
+
+.pic-left,
+.pic-right {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    width: 48%;
+}
+
+.pic-gioiThieu img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .content, .pic-gioiThieu, .pic-left, .pic-right {
+  display: block;
+  width: 100%;
+  }
+
+  .content-gioiThieu {
+    color: white;
+    padding: 0 10px;
+    font-size: 16px;
   }
 }
 

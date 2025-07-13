@@ -8,8 +8,10 @@
 
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&family=Pacifico&display=swap" rel="stylesheet">
+  <script src="thuengay.js"></script>
+
 </head>
 <body>
   <nav class="navbar" id="trang-Chu">
@@ -27,46 +29,220 @@
         </ul>
     </nav>
 
-    <section class="thong-tin-tro">
+    <section>
+        <!-- Back button -->
         <div class="back">
-                <a href="index.html">
-                    &larr; Trang chủ
-                </a>
-            </div>
-        <h2>Đăng ký thuê trọ</h2>
-
-        <div class="khung-tro">
-            <div class="thong-tin-phong">
-            <h3>Phòng trọ Bình Chánh 12m²</h3>
-            <p><strong>Giá:</strong> 1 triệu/tháng</p>
-            <p><strong>Diện tích:</strong> 12m²</p>
-            <p><strong>Địa chỉ:</strong> xã An Phú Tây, Bình Chánh, TP.HCM</p>
-            <p><strong>Tiện ích:</strong> Gần chợ, wifi, có chỗ để xe</p>
-            </div>
-
-            <div class="thong-tin-chu">
-            <h3>Thông tin chủ phòng</h3>
-            <p><strong>Tên:</strong> anh Hiếu</p>
-            <p><strong>Điện thoại:</strong> 0909 123456</p>
-            <p><strong>Email:</strong> nhatrotan@gmail.com</p>
-            </div>
+            <a href="index.html">← Quay lại</a>
         </div>
 
-        <div class="hinh-anh-tro">
-            <h3>Hình ảnh thực tế:</h3>
-            <img src="img/tro5.jpg" alt="Ảnh phòng trọ">
-        </div>
+        <!-- thông tin chính -->
+        <div class="main-container">
+            <!-- Left sidebar - thông tin chủ trọ -->
+            <div class="chu-tro-info">
+                <div class="avatar">
+                    <img src="img/avatar.jpg" alt="Avatar chủ trọ">
+                </div>
+                <div class="chu-tro-details">
+                    <h3>Hiếu BDS</h3>
+                    <p class="role">Chủ trọ</p>
+                    <p class="rating">★★★★★ 4.8/5 • 25 đánh giá <br> • Phòng trọ thành lập từ năm 2012</p>
+                    <p class="status">🟢 Đang hoạt động</p>
+                </div>
+                <button class="call-btn">📞 0912345678</button>
+                
+                <div class="contact-form">
+                    <h4>Bạn cần tư vấn thêm?</h4>
+                    <p>Để lại thông tin để được tư vấn tốt nhất</p>
+                    <form id="form-thue">
+                        <input type="text" placeholder="Họ và tên *" required>
+                        <input type="tel" placeholder="Số điện thoại *" required>
+                        <textarea placeholder="Tôi muốn tìm hiểu thêm thông tin" rows="3"></textarea>
+                        <button type="submit">Gửi thông tin</button>
+                    </form>
+                </div>
+            </div>
 
-        <div class="form-dat-tro">
-            <h3>Để lại thông tin để chủ trọ liên hệ với bạn:</h3>
-            <form id="form-thue">
-            <input type="text" placeholder="Họ và tên" required>
-            <input type="tel" placeholder="Số điện thoại" required>
-            <textarea placeholder="Ghi chú cho chủ trọ (vd: tôi ở 1 mình hay nhiều người, giờ giấc cá nhân...)" rows="4"></textarea>
-            <button type="submit">Gửi thông tin</button>
-            </form>
+            <!-- Right content -->
+            <div class="content-right">
+                <!-- Image gallery -->
+                <div class="image-gallery">
+                    <div class="main-image">
+                        <img id="main-img" src="" alt="Hình chính phòng trọ">
+                        <div class="image-counter">1/6</div>
+                        <button class="nav-btn prev-btn" onclick="changeImage(-1)">❮</button>
+                        <button class="nav-btn next-btn" onclick="changeImage(1)">❯</button>
+                    </div>
+                    <div class="thumbnail-gallery">
+                        <img class="thumbnail active" src="img/KD2-phongchinh.jpg" alt="Hình 1" onclick="showImage(0)">
+                        <img class="thumbnail" src="img/KD2-bedroom.jpg" alt="Hình 2" onclick="showImage(1)">
+                        <img class="thumbnail" src="img/KD2-bep.jpg" alt="Hình 3" onclick="showImage(2)">
+                        <img class="thumbnail" src="img/KD2-bep2.jpg" alt="Hình 4" onclick="showImage(3)">
+                        <img class="thumbnail" src="img/KD2-phongchinh2.jpg" alt="Hình 5" onclick="showImage(4)">
+                        <img class="thumbnail" src="img/KD2-phongchinh3.jpg" alt="Hình 6" onclick="showImage(5)">
+                    </div>
+                </div>
+
+                <!-- Room details -->
+                <div class="room-details">
+                    <h1>PHÒNG TRỌ CHÚT ÚT THÀNH gần chợ Phú Lạc - Bình Chánh</h1>
+                    <div class="price-area">
+                        <span class="price">2 triệu/tháng</span>
+                        <span class="area">12 m²</span>
+                    </div>
+                    <div class="address">
+                        <span class="location-icon">📍</span>
+                        <span>Quốc lộ 50, xã Phong Phú, huyện Bình Chánh, Tp Hồ Chí Minh</span>
+                    </div>
+                    <div class="posted-date">
+                        <span class="clock-icon">🕒</span>
+                        <span>Cập nhật 40 phút trước</span>
+                    </div>
+
+                    <div class="quick-info">
+                        <div class="info-item">
+                            <span class="label">Diện tích:</span>
+                            <span class="value">12 m²</span>
+                        </div>
+                    </div>
+
+                    <div class="description">
+                        <h3>Mô tả chi tiết</h3>
+                        <div class="contact-info">
+                            <strong>SĐT Liên hệ: 0912345678</strong>
+                        </div>
+                        <p>- Gần chợ Phú Lạc-Bình Chánh, gần trường đại học Văn Hiến, khu vực an ninh, yên tĩnh, thuận tiện đi lại</p>
+                        <p>- Phòng rộng, sạch sẽ</p>
+                        <p>- Có WC riêng, nấu ăn thoải mái</p>
+                        <p>- View đẹp (phòng rộng, có cửa sổ - Có camera, thông mát, thoáng mát)</p>
+                        <p>- Giờ giấc tự do - Không chung chủ</p>
+                        <p>- Có wifi mạnh, chủ nhà hổ trợ nhiệt tình 24/7</p>
+                    </div>
+
+                    <!-- Google Maps -->
+                    <div class="map-container">
+                        <h3>Xem trên bản đồ</h3>
+                        <div class="map-placeholder">
+                            <!-- BẢN ĐỒ SẼ NHÚNG Ở ĐÂY -->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.548805937695!2d106.65276467582417!3d10.692087089451592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317531c2e15d5505%3A0x57dada461f5304b5!2zUGhvbmcgUGjDuiwgQsOsbmggQ2jDoW5oLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1751895026838!5m2!1svi!2s" 
+                            width="600" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Thêm thông tin nhiều phòng khác -->
+                 <!-- Danh sách các phòng khác -->
+                <div class="ds-phong-khac">
+                <h2>Tham khảo thêm</h2>
+                    <div class="phong-khac-wrapper">
+                        <div class="phong-khac-item">
+                            <img src="img/KD3-phongchinh4.jpg" alt="Phòng 1">
+                            <div class="phong-khac-info">
+                                <h3>Siêu rẻ</h3>
+                                <p>Địa chỉ: <strong>Quận 9</strong></p>
+                                <p>Diện tích: <strong>12m<sup>2</sup></strong></p>
+                                <p class="gia">1 triệu/tháng</p>
+                                <a href="thuengay.html"><button class="rent-btn">Thuê ngay</button></a>
+                            </div>
+                        </div>
+
+                        <div class="phong-khac-item">
+                        <img src="img/KD3-phongchinh4.jpg" alt="Phòng 2">
+                            <div class="phong-khac-info">
+                                <h3>Siêu rẻ</h3>
+                                <p>Địa chỉ: <strong>Quận 5</strong></p>
+                                <p>Diện tích: <strong>12m<sup>2</sup></strong></p>
+                                <p class="gia">2 triệu/tháng</p>
+                                <a href="thuengay.html"><button class="rent-btn">Thuê ngay</button></a>
+                            </div>
+                        </div>
+
+                        <div class="phong-khac-item">
+                        <img src="img/KD3-phongchinh4.jpg" alt="Phòng 2">
+                            <div class="phong-khac-info">
+                                <h3>Siêu rẻ</h3>
+                                <p>Địa chỉ: <strong>Quận 9</strong></p>
+                                <p>Diện tích: <strong>12m<sup>2</sup></strong></p>
+                                <p class="gia">2 triệu/tháng</p>
+                                <a href="thuengay.html"><button class="rent-btn">Thuê ngay</button></a>
+                            </div>
+                        </div>
+
+                        <div class="phong-khac-item">
+                            <img src="img/KD3-phongchinh4.jpg" alt="Phòng 3">
+                            <div class="phong-khac-info">
+                                <h3>Siêu rẻ</h3>
+                                <p>Địa chỉ: <strong>Bình Chánh</strong></p>
+                                <p>Diện tích: <strong>15m<sup>2</sup></strong></p>
+                                <p class="gia">2 triệu/tháng</p>
+                                <a href="thuengay.html"><button class="rent-btn">Thuê ngay</button></a>
+                            </div>
+                        </div>
+
+                        <div class="phong-khac-item">
+                            <img src="img/KD3-phongchinh4.jpg" alt="Phòng 4">
+                            <div class="phong-khac-info">
+                                <h3>Siêu rẻ</h3>
+                                <p>Địa chỉ: <strong>Bình Chánh</strong></p>
+                                <p>Diện tích: <strong>12m<sup>2</sup></strong></p>
+                                <p class="gia">1 triệu/tháng</p>
+                                <a href="thuengay.html"><button class="rent-btn">Thuê ngay</button></a>
+                            </div>
+                        </div>
+
+                        <div class="phong-khac-item">
+                            <img src="img/KD3-phongchinh4.jpg" alt="Phòng 4">
+                            <div class="phong-khac-info">
+                                <h3>Siêu rẻ</h3>
+                                <p>Địa chỉ: <strong>Quận 9</strong></p>
+                                <p>Diện tích: <strong>12m<sup>2</sup></strong></p>
+                                <p class="gia">3 triệu/tháng</p>
+                                <a href="thuengay.html"><button class="rent-btn">Thuê ngay</button></a>
+                            </div>
+                        </div>
+
+                        <div class="phong-khac-item">
+                            <img src="img/KD3-phongchinh4.jpg" alt="Phòng 4">
+                            <div class="phong-khac-info">
+                                <h3>Siêu rẻ</h3>
+                                <p>Địa chỉ: <strong>Quận 5</strong></p>
+                                <p>Diện tích: <strong>12m<sup>2</sup></strong></p>
+                                <p class="gia">2 triệu/tháng</p>
+                                <a href="thuengay.html"><button class="rent-btn">Thuê ngay</button></a>
+                            </div>
+                        </div>
+
+                        <div class="phong-khac-item">
+                        <img src="img/KD3-phongchinh4.jpg" alt="Phòng 4">
+                            <div class="phong-khac-info">
+                                <h3>Siêu rẻ</h3>
+                                <p>Địa chỉ: <strong>Quận 5</strong></p>
+                                <p>Diện tích: <strong>12m<sup>2</sup></strong></p>
+                                <p class="gia">3 triệu/tháng</p>
+                                <a href="thuengay.html"><button class="rent-btn">Thuê ngay</button></a>
+                            </div>
+                        </div>
+
+                        <div class="phong-khac-item">
+                            <img src="img/KD3-phongchinh4.jpg" alt="Phòng 4">
+                            <div class="phong-khac-info">
+                                <h3>Siêu rẻ</h3>
+                                <p>Địa chỉ: <strong>Quận 5</strong></p>
+                                <p>Diện tích: <strong>12m<sup>2</sup></strong></p>
+                                <p class="gia">2 triệu/tháng</p>
+                                <a href="thuengay.html"><button class="rent-btn">Thuê ngay</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        </section>
+    </section>
+
 
 
     
@@ -81,16 +257,6 @@
 
 
 </body>
-
-<script src="script.js"></script>
-<script>
-  document.getElementById("form-thue").addEventListener("submit", function(e) {
-    e.preventDefault();
-    alert("Thông tin đã gửi. Chủ trọ sẽ gọi đến bạn sớm nhất!");
-    this.reset();
-  });
-</script>
-
 
 
 
